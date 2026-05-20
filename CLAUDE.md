@@ -1,7 +1,5 @@
 @AGENTS.md
 # CLAUDE.md - BaoVeTheAn
-
-
 Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions as needed.
 
 **Tradeoff:** These guidelines bias toward caution over speed. For trivial tasks, use judgment.
@@ -65,3 +63,62 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ---
 
 **These guidelines are working if:** fewer unnecessary changes in diffs, fewer rewrites due to overcomplication, and clarifying questions come before implementation rather than after mistakes.
+
+## Project Overview
+
+- **Frontend:** Next.js 16 (App Router), TypeScript, Tailwind CSS 4
+- **Backend:** NestJS, TypeScript, Prisma ORM
+- **Database:** PostgreSQL
+- **Deploy:** VPS (Nginx + PM2)
+
+## Code Style
+
+- Indent: 4 spaces (tabs không dùng)
+- Viết ngắn gọn, không thừa code
+- Không comment trừ khi logic thực sự khó hiểu
+- Ưu tiên early return, tránh nested if/else sâu
+
+## Frontend Rules (Next.js)
+
+- Mỗi component một file, không viết nhiều component trong 1 file
+- Tách rõ: UI components, layout components, page components
+- Cấu trúc:
+  ```
+  app/
+    (public)/          # Landing page, blog (SSR/SSG)
+    (admin)/           # Admin panel
+  components/
+    ui/                # Button, Input, Card, Modal...
+    layout/            # Header, Footer, Sidebar...
+    sections/          # Hero, About, Services... (landing page sections)
+  lib/                 # Utils, API client, constants
+  types/               # Shared TypeScript types
+  ```
+- Component > 150 dòng → tách nhỏ hơn
+- Dùng `next/image` cho tất cả ảnh
+- Metadata API cho SEO (không dùng `<Head>`)
+
+## Backend Rules (NestJS)
+
+- Cấu trúc module rõ ràng theo domain:
+  ```
+  src/
+    auth/              # Module: JWT, guards, strategies
+    posts/             # Module: CRUD bài viết
+    upload/            # Module: file upload
+    common/            # Filters, interceptors, decorators, pipes
+    prisma/            # Prisma service + module
+  ```
+- Mỗi module có: controller, service, dto, entity riêng
+- Validation dùng class-validator + DTO
+- Auth dùng JWT + Passport guards
+- Upload ảnh: Multer → Sharp (resize) → lưu local `/uploads/`
+- API prefix: `/api/v1/`
+
+## General Guidelines
+
+- Không thêm feature ngoài yêu cầu
+- Không refactor code không liên quan
+- Không tạo abstraction cho thứ chỉ dùng 1 lần
+- Nếu không chắc → hỏi trước, không đoán
+- Mỗi thay đổi phải trace được về yêu cầu của user
