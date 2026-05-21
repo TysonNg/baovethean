@@ -121,3 +121,29 @@ export interface BlogCategory {
     label: string;
     slug: string;
 }
+
+export interface ServiceHighlight {
+    code: string;
+    title: string;
+    description: string;
+}
+
+export interface ServiceDetail {
+    code: string;
+    name: string;
+    tags: string[];
+    description: string;
+    features: string[];
+    location: string;
+}
+
+export interface ServiceStrength {
+    code: string;
+    title: string;
+    description: string;
+}
+
+export interface ServiceSector {
+    name: string;
+    subtitle: string;
+}

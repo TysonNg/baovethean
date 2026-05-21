@@ -15,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 0.8,
         },
         {
+            url: "https://baovethean.vn/dich-vu",
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
             url: "https://baovethean.vn/tin-tuc",
             lastModified: new Date(),
             changeFrequency: "weekly",
