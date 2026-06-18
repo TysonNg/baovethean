@@ -7,7 +7,7 @@ interface BlogPaginationProps {
 }
 
 function pageClassName(isActive: boolean) {
-    const base = "w-10 h-10 rounded text-sm font-medium transition-colors";
+    const base = "w-10 h-10 rounded text-sm font-medium transition-colors cursor-pointer";
 
     if (isActive) {
         return `${base} bg-navy-900 text-white`;
@@ -33,7 +33,7 @@ export default function BlogPagination({
                 aria-label="Trang trước"
                 onClick={() => onPageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="w-10 h-10 rounded border border-line text-ink-3 hover:border-ink hover:text-ink disabled:cursor-not-allowed disabled:opacity-40 transition-colors inline-flex items-center justify-center"
+                className="w-10 h-10 rounded border border-line text-ink-3 hover:border-ink hover:text-ink cursor-pointer disabled:cursor-not-allowed disabled:opacity-40 transition-colors inline-flex items-center justify-center"
             >
                 <ChevronLeft size={16} />
             </button>
@@ -55,7 +55,7 @@ export default function BlogPagination({
                 aria-label="Trang sau"
                 onClick={() => onPageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="w-10 h-10 rounded border border-line text-ink-3 hover:border-ink hover:text-ink disabled:cursor-not-allowed disabled:opacity-40 transition-colors inline-flex items-center justify-center"
+                className="w-10 h-10 rounded border border-line text-ink-3 hover:border-ink hover:text-ink cursor-pointer disabled:cursor-not-allowed disabled:opacity-40 transition-colors inline-flex items-center justify-center"
             >
                 <ChevronRight size={16} />
             </button>
