@@ -103,16 +103,30 @@ export interface FAQItem {
     answer: string;
 }
 
+export type ArticleBlock =
+    | { type: "paragraph"; text: string }
+    | { type: "heading"; text: string }
+    | { type: "quote"; text: string };
+
 export interface BlogArticle {
     slug: string;
+    code: string;
     category: string;
+    categorySlug: string;
     date: string;
+    isoDate: string;
     title: string;
     excerpt: string;
     content: string;
+    body: ArticleBlock[];
+    tags: string[];
+    heroLabel: string;
+    heroCaption: string;
     imageLabel: string;
     author: string;
+    authorRole: string;
     authorInitials: string;
+    authorBio: string;
     readTime: number;
     featured?: boolean;
 }
@@ -185,4 +199,69 @@ export interface ProcessStepDetail {
     photoLabel: string;
     overlay: ProcessOverlay;
     photoVariant?: "navy" | "light";
+}
+
+export interface AboutHeroMeta {
+    label: string;
+    value: string;
+}
+
+export type AboutPillarIcon = "shield" | "eye" | "star";
+
+export interface AboutPillar {
+    code: string;
+    icon: AboutPillarIcon;
+    title: string;
+    description: string;
+    footnote: string;
+}
+
+export interface AboutDifferentiator {
+    title: string;
+    description: string;
+}
+
+export interface AboutStat {
+    value: string;
+    eyebrow: string;
+    label: string;
+}
+
+export interface RecruitSummaryItem {
+    label: string;
+    value: string;
+}
+
+export type RecruitBenefitIcon =
+    | "wallet"
+    | "shield"
+    | "book"
+    | "discipline"
+    | "growth"
+    | "team";
+
+export interface RecruitBenefit {
+    code: string;
+    icon: RecruitBenefitIcon;
+    title: string;
+    description: string;
+}
+
+export interface RecruitRequirement {
+    title: string;
+    description: string;
+}
+
+export interface RecruitStep {
+    number: string;
+    title: string;
+    description: string;
+    timing: string;
+}
+
+export interface RecruitTestimonial {
+    quote: string;
+    name: string;
+    role: string;
+    initials: string;
 }
