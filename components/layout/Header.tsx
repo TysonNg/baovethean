@@ -5,6 +5,7 @@ import { Shield, Phone, Menu } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/lib/data";
 import Button from "@/components/ui/Button";
 import MobileDrawer from "./MobileDrawer";
+import Link from "next/link";
 
 export default function Header() {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -12,7 +13,7 @@ export default function Header() {
     return (
         <header className="sticky top-0 z-50 bg-white border-b border-line">
             <div className="max-w-[1240px] mx-auto px-6 flex items-center justify-between h-16">
-                <a href="#" className="flex items-center gap-2">
+                <Link href="/" className="flex items-center gap-2">
                     <div className="w-8 h-8 bg-navy-900 rounded flex items-center justify-center">
                         <Shield size={16} className="text-gold" fill="#C9A14A" strokeWidth={0} />
                     </div>
@@ -24,17 +25,17 @@ export default function Header() {
                             Vietnam Security Services
                         </span>
                     </div>
-                </a>
+                </Link>
 
                 <nav className="hidden lg:flex items-center gap-6">
                     {NAV_LINKS.map((link) => (
-                        <a
+                        <Link
                             key={link.href}
                             href={link.href}
                             className="text-sm font-medium text-ink-3 hover:text-ink transition-colors"
                         >
                             {link.label}
-                        </a>
+                        </Link>
                     ))}
                 </nav>
 

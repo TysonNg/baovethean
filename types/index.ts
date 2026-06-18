@@ -147,3 +147,42 @@ export interface ServiceSector {
     name: string;
     subtitle: string;
 }
+
+export interface ProcessHeroMeta {
+    label: string;
+    value: string;
+}
+
+export interface ProcessStepNav {
+    number: string;
+    label: string;
+}
+
+export interface ProcessMetaCell {
+    label: string;
+    value: string;
+}
+
+export interface ProcessChecklist {
+    label: string;
+    value: string;
+}
+
+export interface ProcessOverlay {
+    caption: string;
+    text: string;
+}
+
+export interface ProcessStepDetail {
+    code: string;
+    number: string;
+    eyebrow: string;
+    label: string;
+    title: string;
+    description: string;
+    meta: ProcessMetaCell[];
+    checklist: ProcessChecklist[];
+    photoLabel: string;
+    overlay: ProcessOverlay;
+    photoVariant?: "navy" | "light";
+}

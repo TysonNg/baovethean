@@ -14,9 +14,8 @@ import type {
 
 export const NAV_LINKS: NavLink[] = [
     { label: "Giới thiệu", href: "#about" },
-    { label: "Dịch vụ", href: "#services" },
-    { label: "Năng lực", href: "#why" },
-    { label: "Quy trình", href: "#process" },
+    { label: "Dịch vụ", href: "/dich-vu" },
+    { label: "Quy trình", href: "/quy-trinh" },
     { label: "Khách hàng", href: "#clients" },
     { label: "Tin tức", href: "/tin-tuc" },
     { label: "Liên hệ", href: "/lien-he" },
@@ -270,8 +269,8 @@ export const NEWS_ARTICLES: Article[] = [
 
 export const FOOTER_LINKS: NavLink[] = [
     { label: "Giới thiệu", href: "#about" },
-    { label: "Dịch vụ", href: "#services" },
-    { label: "Quy trình", href: "#process" },
+    { label: "Dịch vụ", href: "/dich-vu" },
+    { label: "Quy trình", href: "/quy-trinh" },
     { label: "Khách hàng", href: "#clients" },
     { label: "Tin tức", href: "/tin-tuc" },
     { label: "Liên hệ", href: "/lien-he" },
