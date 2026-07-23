@@ -22,7 +22,7 @@ export default function CtaBand() {
                         </p>
                     </div>
                     <div className="flex flex-col items-start lg:items-end gap-4">
-                        <Button href="#contact" arrow className="w-full lg:w-auto">
+                        <Button href="/lien-he" arrow className="w-full lg:w-auto">
                             Nhận báo giá
                         </Button>
                         <div className="text-center lg:text-right">

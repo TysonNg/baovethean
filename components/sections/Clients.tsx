@@ -1,65 +1,67 @@
 import { Quote } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Eyebrow from "@/components/ui/Eyebrow";
-import { CLIENTS, TESTIMONIAL } from "@/lib/data";
+import { TESTIMONIAL } from "@/lib/data";
+
+const PARTNER_LOGOS = [
+    "SAMSUNG",
+    "VINHOMES",
+    "BIDV",
+    "TOYOTA",
+    "Vietcombank",
+    "Viettel",
+];
 
 export default function Clients() {
     return (
-        <section id="clients" className="py-20 md:py-24">
+        <section id="clients" className="bg-[#F8FAFC] py-16 md:py-20 border-t border-slate-200/60">
             <Container>
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
-                    <div className="max-w-xl">
-                        <Eyebrow text="Khách hàng tiêu biểu" />
-                        <h2 className="heading-1 text-ink mt-4 mb-4">
-                            Đối tác đồng hành cùng Bảo vệ Thế An.
-                        </h2>
-                        <p className="text-ink-3 leading-relaxed">
-                            Hơn 200 doanh nghiệp đang sử dụng dịch vụ bảo vệ
-                            và giám sát của chúng tôi tại 18 tỉnh thành trên cả
-                            nước.
-                        </p>
-                    </div>
-                    <span className="px-3 py-1.5 border border-line rounded text-xs font-medium text-ink-3 uppercase tracking-wider whitespace-nowrap">
-                        Cập nhật Q1 · 2026
-                    </span>
+                {/* Section Title Centered */}
+                <div className="text-center max-w-xl mx-auto mb-10">
+                    <h2 className="text-xl sm:text-2xl font-extrabold text-[#0B1E3F] tracking-tight uppercase">
+                        Đối Tác & Khách Hàng
+                    </h2>
                 </div>
 
-                <div className="grid grid-cols-3 md:grid-cols-6 border border-line rounded overflow-hidden mb-14">
-                    {CLIENTS.map((name) => (
+                {/* Partner Logos Bar */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center justify-items-center mb-16 px-4">
+                    {PARTNER_LOGOS.map((name) => (
                         <div
                             key={name}
-                            className="flex items-center justify-center h-16 border border-line text-xs font-semibold text-ink-3 tracking-wider uppercase"
+                            className="w-full h-16 flex items-center justify-center bg-white rounded-lg border border-slate-200/80 shadow-2xs hover:shadow-xs transition-shadow"
                         >
-                            {name}
+                            <span className="text-sm font-extrabold text-[#1D528F] tracking-wider uppercase">
+                                {name}
+                            </span>
                         </div>
                     ))}
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8 items-start">
+                {/* Testimonial Quote */}
+                <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-8 items-start bg-white p-8 rounded-xl border border-slate-200/80 shadow-xs">
                     <div>
-                        <Quote size={32} className="text-gold mb-4" />
-                        <blockquote className="text-lg text-ink leading-relaxed mb-6">
-                            {TESTIMONIAL.quote}
+                        <Quote size={32} className="text-[#1D528F] mb-4 opacity-80" />
+                        <blockquote className="text-base sm:text-lg text-slate-700 leading-relaxed mb-6 italic">
+                            &ldquo;{TESTIMONIAL.quote}&rdquo;
                         </blockquote>
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-navy-800 rounded-full flex items-center justify-center text-sm font-bold text-gold-soft">
+                            <div className="w-11 h-11 bg-[#0B1E3F] rounded-full flex items-center justify-center text-sm font-bold text-white shadow-xs">
                                 {TESTIMONIAL.initials}
                             </div>
                             <div>
-                                <div className="text-sm font-semibold text-ink">
+                                <div className="text-sm font-bold text-[#0B1E3F]">
                                     {TESTIMONIAL.name}
                                 </div>
-                                <div className="text-xs text-ink-3">
+                                <div className="text-xs text-slate-500">
                                     {TESTIMONIAL.title}
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div className="border border-line rounded p-6">
-                        <div className="flex items-center gap-2 mb-5">
-                            <span className="w-6 h-px bg-gold" />
-                            <span className="text-[10px] uppercase tracking-wider text-gold-deep font-semibold">
+                    <div className="bg-slate-50 rounded-lg p-6 border border-slate-200/60">
+                        <div className="flex items-center gap-2 mb-4">
+                            <span className="w-5 h-0.5 bg-[#1D528F]" />
+                            <span className="text-xs uppercase tracking-wider text-[#1D528F] font-bold">
                                 Tóm tắt hợp tác
                             </span>
                         </div>
@@ -67,12 +69,12 @@ export default function Clients() {
                             {TESTIMONIAL.summary.map((item) => (
                                 <div
                                     key={item.label}
-                                    className="flex items-center justify-between py-3 border-b border-line last:border-0"
+                                    className="flex items-center justify-between py-2.5 border-b border-slate-200/80 last:border-0"
                                 >
-                                    <span className="text-sm text-ink-3">
+                                    <span className="text-xs text-slate-500 font-medium">
                                         {item.label}
                                     </span>
-                                    <span className="text-sm font-semibold text-ink">
+                                    <span className="text-xs font-bold text-[#0B1E3F]">
                                         {item.value}
                                     </span>
                                 </div>

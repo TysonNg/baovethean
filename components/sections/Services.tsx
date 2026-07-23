@@ -1,70 +1,61 @@
-import { ArrowRight } from "lucide-react";
+import { Building2, Factory, Warehouse, ShieldAlert } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Eyebrow from "@/components/ui/Eyebrow";
-import Button from "@/components/ui/Button";
-import Photo from "@/components/ui/Photo";
-import { SERVICES } from "@/lib/data";
+
+const FEATURED_SERVICES = [
+    {
+        title: "Bảo vệ tòa nhà",
+        description: "Đội ngũ chuyên nghiệp, kiểm soát an ninh 24/7.",
+        icon: Building2,
+    },
+    {
+        title: "Bảo vệ nhà máy",
+        description: "Quản lý an ninh cho nhà máy, khu công nghiệp.",
+        icon: Factory,
+    },
+    {
+        title: "Bảo vệ kho bãi",
+        description: "Giám sát, kiểm soát hàng hóa, tài sản.",
+        icon: Warehouse,
+    },
+    {
+        title: "Bảo vệ sự kiện",
+        description: "Đảm bảo an ninh cho mọi sự kiện lớn nhỏ.",
+        icon: ShieldAlert,
+    },
+];
 
 export default function Services() {
     return (
-        <section id="services" className="bg-bg-alt py-20 md:py-24">
+        <section id="services" className="bg-slate-50/60 py-20 md:py-24">
             <Container>
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-                    <div className="max-w-xl">
-                        <Eyebrow text="Dịch vụ" />
-                        <h2 className="heading-1 text-ink mt-4 mb-4">
-                            Giải pháp bảo vệ chuyên biệt theo từng mô hình
-                            doanh nghiệp.
-                        </h2>
-                        <p className="lead text-ink-3">
-                            Mỗi hợp đồng được khảo sát và thiết kế phương án
-                            riêng — phù hợp với quy mô, đặc thù vận hành và yêu
-                            cầu an ninh của khách hàng.
-                        </p>
-                    </div>
-                    <Button href="#contact" variant="outline" arrow>
-                        Yêu cầu khảo sát
-                    </Button>
+                {/* Section Title Centered */}
+                <div className="text-center max-w-2xl mx-auto mb-14">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0B1E3F] tracking-tight uppercase">
+                        Giải Pháp Bảo Vệ Toàn Diện
+                    </h2>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {SERVICES.map((service) => (
-                        <div
-                            key={service.code}
-                            className="bg-white rounded overflow-hidden"
-                        >
-                            <Photo
-                                label={service.code.replace("DV · ", "IMG · 0")}
-                                className="aspect-[16/10]"
-                                overlay={
-                                    <div className="p-4">
-                                        <span className="inline-flex items-center gap-1.5 text-[11px] font-medium text-white uppercase tracking-wider">
-                                            <span className="w-1.5 h-1.5 bg-gold rounded-full" />
-                                            {service.location}
-                                        </span>
-                                    </div>
-                                }
-                            />
-                            <div className="p-5">
-                                <span className="text-xs font-semibold text-gold-deep">
-                                    {service.code}
-                                </span>
-                                <h3 className="heading-3 text-ink mt-2 mb-2">
-                                    {service.name}
+                {/* 4 Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {FEATURED_SERVICES.map((service) => {
+                        const Icon = service.icon;
+                        return (
+                            <div
+                                key={service.title}
+                                className="bg-white rounded-xl p-8 border border-slate-200/80 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center group"
+                            >
+                                <div className="w-16 h-16 rounded-xl bg-blue-50/80 text-[#1D528F] group-hover:bg-[#1D528F] group-hover:text-white transition-colors duration-300 flex items-center justify-center mb-6">
+                                    <Icon size={32} strokeWidth={1.75} />
+                                </div>
+                                <h3 className="text-lg font-bold text-[#0B1E3F] mb-3">
+                                    {service.title}
                                 </h3>
-                                <p className="text-sm text-ink-3 mb-4 leading-relaxed">
+                                <p className="text-sm text-slate-500 leading-relaxed">
                                     {service.description}
                                 </p>
-                                <a
-                                    href="#"
-                                    className="inline-flex items-center gap-1 text-sm font-medium text-gold-deep hover:text-gold transition-colors"
-                                >
-                                    Xem chi tiết
-                                    <ArrowRight size={14} />
-                                </a>
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
             </Container>
         </section>
