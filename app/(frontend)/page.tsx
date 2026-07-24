@@ -1,4 +1,5 @@
 import Hero from "@/components/sections/Hero";
+import HomeIntroduction from "@/components/sections/HomeIntroduction";
 import Services from "@/components/sections/Services";
 import WhyChoose from "@/components/sections/WhyChoose";
 import Clients from "@/components/sections/Clients";
@@ -9,6 +10,7 @@ export default function Home() {
     return (
         <>
             <Hero />
+            <HomeIntroduction />
             <Services />
             <WhyChoose />
             {/* <KnowledgeInsights /> */}
