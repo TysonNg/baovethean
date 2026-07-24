@@ -6,7 +6,7 @@ const ICONS = [Phone, Mail, MapPin, Clock, LayoutGrid];
 
 export default function ContactInfo() {
     return (
-        <section className="py-16 border-y border-line">
+        <section className="marketing-section-compact border-y border-line">
             <Container>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                     {CONTACT_INFO_CARDS.map((card, i) => {

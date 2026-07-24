@@ -5,11 +5,11 @@ import { ABOUT_HERO_META } from "@/lib/about-data";
 
 export default function AboutHero() {
     return (
-        <section className="bg-white pt-16 md:pt-20 pb-16 md:pb-20">
+        <section className="marketing-hero bg-white">
             <Container>
                 <nav
                     aria-label="Breadcrumb"
-                    className="flex items-center gap-2 text-sm text-ink-3 mb-10"
+                    className="marketing-breadcrumb flex items-center gap-2 text-sm text-ink-3"
                 >
                     <Link href="/" className="hover:text-ink transition-colors">
                         Trang chủ
@@ -23,7 +23,7 @@ export default function AboutHero() {
                 <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 items-start">
                     <div>
                         <Eyebrow text="Về Bảo vệ Thế An" />
-                        <h1 className="heading-1 text-ink mt-4 mb-6">
+                        <h1 className="heading-1 text-ink mt-4 mb-4">
                             Giới thiệu về chúng tôi
                         </h1>
                         <p className="lead text-ink-3 max-w-xl">

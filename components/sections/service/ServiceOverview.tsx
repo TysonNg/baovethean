@@ -4,9 +4,9 @@ import { SERVICE_HIGHLIGHTS } from "@/lib/service-data";
 
 export default function ServiceOverview() {
     return (
-        <section className="py-20 md:py-24">
+        <section className="marketing-section">
             <Container>
-                <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6 mb-12">
+                <div className="marketing-intro grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6">
                     <div>
                         <Eyebrow text="Tổng quan" />
                         <h2 className="heading-1 text-ink mt-4">

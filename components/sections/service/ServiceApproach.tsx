@@ -5,13 +5,13 @@ import { SERVICE_APPROACH_STEPS } from "@/lib/service-data";
 
 export default function ServiceApproach() {
     return (
-        <section className="py-20 md:py-24">
+        <section className="marketing-section">
             <Container>
                 <Eyebrow text="Cách làm việc" />
                 <h2 className="heading-1 text-ink mt-4 mb-4 max-w-lg">
                     Giải pháp bảo vệ theo từng mô hình doanh nghiệp.
                 </h2>
-                <p className="lead text-ink-3 max-w-xl mb-12">
+                <p className="lead text-ink-3 max-w-xl mb-8">
                     Mỗi khách hàng có nhu cầu khác nhau — vì vậy, thay vì áp
                     dụng một giải pháp chung cho tất cả, chúng tôi khảo sát
                     thực địa, phân tích rủi ro và đề xuất phương án phù hợp với

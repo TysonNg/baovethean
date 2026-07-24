@@ -12,9 +12,9 @@ const ICONS: Record<AboutPillarIcon, LucideIcon> = {
 
 export default function AboutPillars() {
     return (
-        <section className="bg-white py-20 md:py-24">
+        <section className="marketing-section bg-white">
             <Container>
-                <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6 mb-12">
+                <div className="marketing-intro grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6">
                     <div>
                         <Eyebrow text="Định hướng" />
                         <h2 className="heading-1 text-ink mt-4">

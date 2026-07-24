@@ -5,9 +5,9 @@ import Link from "next/link";
 
 export default function ServiceHero() {
     return (
-        <section className="bg-navy-900 text-white py-20 md:py-24">
+        <section className="marketing-hero bg-navy-900 text-white">
             <Container>
-                <nav className="flex items-center gap-2 text-sm text-white/50 mb-10">
+                <nav className="marketing-breadcrumb flex items-center gap-2 text-sm text-white/50">
                     <Link
                         href="/"
                         className="hover:text-white transition-colors"
@@ -36,7 +36,7 @@ export default function ServiceHero() {
                         {SERVICE_HERO_STATS.map((stat, i) => (
                             <div
                                 key={stat.label}
-                                className={`p-5 ${i % 2 === 0 ? "border-r border-navy-700" : ""} ${i < 2 ? "border-b border-navy-700" : ""}`}
+                                className={`p-4 md:p-5 ${i % 2 === 0 ? "border-r border-navy-700" : ""} ${i < 2 ? "border-b border-navy-700" : ""}`}
                             >
                                 <p className="heading-2 font-serif text-white">
                                     {stat.value}

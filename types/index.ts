@@ -129,6 +129,8 @@ export interface BlogArticle {
     authorBio: string;
     readTime: number;
     featured?: boolean;
+    image?: string;
+    imageAlt?: string;
 }
 
 export interface BlogCategory {

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import BlogFeatured from "@/components/sections/blog/BlogFeatured";
 import BlogGrid from "@/components/sections/blog/BlogGrid";
-import BlogHero from "@/components/sections/blog/BlogHero";
-import { BLOG_ARTICLES, BLOG_CATEGORIES } from "@/lib/blog-data";
+import { getArticles, getBlogCategories } from "@/lib/blog/source";
+import type { BlogArticle } from "@/types";
 
-const PAGE_URL = "https://baovethean.vn/tin-tuc";
+export const revalidate = 60;
+
+const PAGE_URL = "https://baovethean.vn/bai-viet";
 const PAGE_TITLE = "Tin tức & Kiến thức an ninh chuyên nghiệp";
 const PAGE_DESCRIPTION =
     "Cập nhật kiến thức, kinh nghiệm và giải pháp bảo vệ chuyên nghiệp cho doanh nghiệp. Hơn 12 bài viết chuyên sâu về quy trình, nhân sự, công nghệ và xu hướng an ninh từ đội ngũ Bảo vệ Thế An.";
@@ -39,7 +41,7 @@ export const metadata: Metadata = {
     robots: { index: true, follow: true },
 };
 
-function BlogListJsonLd() {
+function BlogListJsonLd({ articles }: { articles: BlogArticle[] }) {
     const blog = {
         "@context": "https://schema.org",
         "@type": "Blog",
@@ -53,7 +55,7 @@ function BlogListJsonLd() {
             name: "Công ty Cổ phần Dịch vụ Bảo vệ Thế An",
             url: "https://baovethean.vn",
         },
-        blogPost: BLOG_ARTICLES.slice(0, 12).map((article) => ({
+        blogPost: articles.slice(0, 12).map((article) => ({
             "@type": "BlogPosting",
             headline: article.title,
             description: article.excerpt,
@@ -102,19 +104,23 @@ function BlogListJsonLd() {
     );
 }
 
-export default function BlogPage() {
+export default async function BlogPage() {
+    const [allArticles, categories] = await Promise.all([
+        getArticles(),
+        getBlogCategories(),
+    ]);
+
     const featured =
-        BLOG_ARTICLES.find((article) => article.featured) ?? BLOG_ARTICLES[0];
-    const articles = BLOG_ARTICLES.filter(
-        (article) => article.slug !== featured.slug,
-    );
+        allArticles.find((article) => article.featured) ?? allArticles[0];
+    const articles = featured
+        ? allArticles.filter((article) => article.slug !== featured.slug)
+        : allArticles;
 
     return (
         <>
-            <BlogListJsonLd />
-            <BlogHero />
-            <BlogFeatured article={featured} />
-            <BlogGrid articles={articles} categories={BLOG_CATEGORIES} />
+            <BlogListJsonLd articles={allArticles} />
+            {featured && <BlogFeatured article={featured} />}
+            <BlogGrid articles={articles} categories={categories} />
         </>
     );
 }

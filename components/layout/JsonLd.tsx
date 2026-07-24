@@ -141,7 +141,7 @@ export default function JsonLd() {
             "@type": "SearchAction",
             target: {
                 "@type": "EntryPoint",
-                urlTemplate: `${SITE_URL}/tin-tuc?q={search_term_string}`,
+                urlTemplate: `${SITE_URL}/bai-viet?q={search_term_string}`,
             },
             "query-input": "required name=search_term_string",
         },

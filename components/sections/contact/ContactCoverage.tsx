@@ -4,7 +4,7 @@ import { COVERAGE_REGIONS } from "@/lib/contact-data";
 
 export default function ContactCoverage() {
     return (
-        <section className="py-20 md:py-24">
+        <section className="marketing-section">
             <Container>
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12">
                     <div className="max-w-xl">

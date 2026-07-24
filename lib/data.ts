@@ -17,7 +17,7 @@ export const NAV_LINKS: NavLink[] = [
     { label: "GIỚI THIỆU", href: "/gioi-thieu" },
     { label: "DỊCH VỤ", href: "/dich-vu" },
     { label: "DỰ ÁN", href: "/du-an" },
-    { label: "TIN TỨC", href: "/tin-tuc" },
+    { label: "BÀI VIẾT", href: "/bai-viet" },
     { label: "LIÊN HỆ", href: "/lien-he" },
 ];
 
@@ -272,7 +272,7 @@ export const FOOTER_LINKS: NavLink[] = [
     { label: "Dịch vụ", href: "/dich-vu" },
     { label: "Quy trình", href: "/quy-trinh" },
     { label: "Khách hàng", href: "#clients" },
-    { label: "Tin tức", href: "/tin-tuc" },
+    { label: "Tin tức", href: "/bai-viet" },
     { label: "Liên hệ", href: "/lien-he" },
 ];
 

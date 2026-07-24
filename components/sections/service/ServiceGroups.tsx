@@ -6,9 +6,9 @@ import { SERVICE_DETAILS } from "@/lib/service-data";
 
 export default function ServiceGroups() {
     return (
-        <section className="bg-bg-alt py-20 md:py-24">
+        <section className="marketing-section bg-bg-alt">
             <Container>
-                <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6 mb-12">
+                <div className="marketing-intro grid grid-cols-1 lg:grid-cols-[55%_45%] gap-6">
                     <div>
                         <Eyebrow text="Các nhóm dịch vụ" />
                         <h2 className="heading-1 text-ink mt-4">

@@ -2,18 +2,33 @@
   "name": "baovethean",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "payload": "payload",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap",
+    "seed": "payload run scripts/seed.ts",
+    "migrate": "payload migrate",
+    "migrate:create": "payload migrate:create"
   },
   "dependencies": {
+    "@payloadcms/db-postgres": "^3.86.0",
+    "@payloadcms/next": "^3.86.0",
+    "@payloadcms/plugin-seo": "^3.86.0",
+    "@payloadcms/richtext-lexical": "^3.86.0",
+    "antd": "^6.5.2",
+    "graphql": "^16.14.2",
     "lucide": "^1.3.0",
     "lucide-react": "^1.16.0",
     "next": "16.2.6",
+    "payload": "^3.86.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "sharp": "^0.35.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

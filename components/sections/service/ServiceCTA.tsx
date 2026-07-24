@@ -5,7 +5,7 @@ import { COMPANY } from "@/lib/data";
 
 export default function ServiceCTA() {
     return (
-        <section className="bg-navy-900 text-white py-20 md:py-24">
+        <section className="marketing-section bg-navy-900 text-white">
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 items-center">
                     <div>

@@ -12,7 +12,7 @@ export default function ContactOffices() {
     const office = OFFICES[active];
 
     return (
-        <section className="py-20 md:py-24">
+        <section className="marketing-section">
             <Container>
                 <div className="max-w-xl mb-10">
                     <Eyebrow text="Hệ thống văn phòng" />

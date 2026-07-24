@@ -5,7 +5,7 @@ import { ABOUT_LEADER } from "@/lib/about-data";
 
 export default function AboutStory() {
     return (
-        <section className="bg-white py-20 md:py-24">
+        <section className="marketing-section bg-white">
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                     <div>
@@ -23,27 +23,13 @@ export default function AboutStory() {
                             xây dựng, chuỗi bán lẻ, chung cư và sự kiện doanh
                             nghiệp trên cả ba miền.
                         </p>
-                        <p className="text-ink-3 leading-relaxed mb-4">
+                        <p className="text-ink-3 leading-relaxed mb-8">
                             Mỗi hợp đồng được vận hành bởi đội ngũ nhân sự được
                             tuyển chọn kỹ lưỡng, đào tạo định kỳ và làm việc
                             theo quy trình chuẩn hóa — kết hợp với trung tâm
                             điều hành giám sát 24/7 và tổ phản ứng nhanh cơ
                             động.
                         </p>
-                        <p className="text-ink-3 leading-relaxed mb-10">
-                            Sau hơn mười năm, chúng tôi tin rằng dịch vụ bảo vệ
-                            chuyên nghiệp không đến từ thiết bị hiện đại, mà đến
-                            từ{" "}
-                            <strong className="font-semibold text-ink">
-                                con người có kỷ luật
-                            </strong>{" "}
-                            và{" "}
-                            <strong className="font-semibold text-ink">
-                                quy trình rõ ràng
-                            </strong>
-                            .
-                        </p>
-
                         <div className="border-t border-line pt-6 flex items-center gap-4">
                             <div className="w-10 h-10 bg-navy-900 rounded flex items-center justify-center shrink-0">
                                 <Shield

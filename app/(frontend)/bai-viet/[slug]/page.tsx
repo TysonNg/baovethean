@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import Container from "@/components/ui/Container";
 import ArticleHero from "@/components/sections/article/ArticleHero";
@@ -7,30 +9,29 @@ import ArticleBody from "@/components/sections/article/ArticleBody";
 import ArticleTags from "@/components/sections/article/ArticleTags";
 import ArticleAuthorFooter from "@/components/sections/article/ArticleAuthorFooter";
 import ArticleRelated from "@/components/sections/article/ArticleRelated";
-import { BLOG_ARTICLES } from "@/lib/blog-data";
+import { getArticleBySlug, getArticles } from "@/lib/blog/source";
+import type { BlogArticle } from "@/types";
 import { COMPANY } from "@/lib/data";
 
 interface PageParams {
     params: Promise<{ slug: string }>;
 }
 
-export function generateStaticParams() {
-    return BLOG_ARTICLES.map((article) => ({ slug: article.slug }));
-}
-
 export async function generateMetadata({
     params,
 }: PageParams): Promise<Metadata> {
     const { slug } = await params;
-    const article = BLOG_ARTICLES.find((item) => item.slug === slug);
+    const article = await getArticleBySlug(slug);
 
     if (!article) {
         return { title: "Bài viết không tồn tại" };
     }
 
-    const url = `https://baovethean.vn/tin-tuc/${article.slug}`;
+    const { isEnabled: isDraft } = await draftMode();
 
-    const ogImage = `/og/tin-tuc/${article.slug}.jpg`;
+    const url = `https://baovethean.vn/bai-viet/${article.slug}`;
+
+    const ogImage = `/og/bai-viet/${article.slug}.jpg`;
 
     return {
         title: article.title,
@@ -69,28 +70,51 @@ export async function generateMetadata({
             description: article.excerpt,
             images: [ogImage],
         },
-        robots: {
-            index: true,
-            follow: true,
-            googleBot: {
-                index: true,
-                follow: true,
-                "max-image-preview": "large",
-                "max-snippet": -1,
-            },
-        },
+        robots: isDraft
+            ? { index: false, follow: false }
+            : {
+                  index: true,
+                  follow: true,
+                  googleBot: {
+                      index: true,
+                      follow: true,
+                      "max-image-preview": "large",
+                      "max-snippet": -1,
+                  },
+              },
     };
+}
+
+function PreviewBanner() {
+    return (
+        <div className="bg-navy-900 text-white text-sm">
+            <Container>
+                <div className="flex items-center justify-between gap-4 py-3">
+                    <span className="font-medium text-gold-soft">
+                        Chế độ xem trước bản nháp — nội dung có thể chưa xuất bản.
+                    </span>
+                    <Link
+                        href="/preview/exit"
+                        prefetch={false}
+                        className="shrink-0 border border-navy-700 rounded px-3 py-1 hover:border-gold-soft transition-colors"
+                    >
+                        Thoát xem trước
+                    </Link>
+                </div>
+            </Container>
+        </div>
+    );
 }
 
 function ArticleJsonLd({
     article,
     related,
 }: {
-    article: (typeof BLOG_ARTICLES)[number];
-    related: typeof BLOG_ARTICLES;
+    article: BlogArticle;
+    related: BlogArticle[];
 }) {
-    const url = `https://baovethean.vn/tin-tuc/${article.slug}`;
-    const imageUrl = `https://baovethean.vn/og/tin-tuc/${article.slug}.jpg`;
+    const url = `https://baovethean.vn/bai-viet/${article.slug}`;
+    const imageUrl = `https://baovethean.vn/og/bai-viet/${article.slug}.jpg`;
 
     const articleBody = article.body.map((block) => block.text).join("\n\n");
     const wordCount = articleBody.split(/\s+/).filter(Boolean).length;
@@ -136,7 +160,7 @@ function ArticleJsonLd({
         isPartOf: {
             "@type": "Blog",
             name: "Tin tức Bảo vệ Thế An",
-            url: "https://baovethean.vn/tin-tuc",
+            url: "https://baovethean.vn/bai-viet",
         },
         about: article.tags.map((tag) => ({
             "@type": "Thing",
@@ -158,13 +182,13 @@ function ArticleJsonLd({
                 "@type": "ListItem",
                 position: 2,
                 name: "Tin tức",
-                item: "https://baovethean.vn/tin-tuc",
+                item: "https://baovethean.vn/bai-viet",
             },
             {
                 "@type": "ListItem",
                 position: 3,
                 name: article.category,
-                item: `https://baovethean.vn/tin-tuc?category=${article.categorySlug}`,
+                item: `https://baovethean.vn/bai-viet?category=${article.categorySlug}`,
             },
             {
                 "@type": "ListItem",
@@ -182,7 +206,7 @@ function ArticleJsonLd({
               itemListElement: related.map((item, i) => ({
                   "@type": "ListItem",
                   position: i + 1,
-                  url: `https://baovethean.vn/tin-tuc/${item.slug}`,
+                  url: `https://baovethean.vn/bai-viet/${item.slug}`,
                   name: item.title,
               })),
           }
@@ -214,28 +238,36 @@ function ArticleJsonLd({
 
 export default async function ArticleDetailPage({ params }: PageParams) {
     const { slug } = await params;
-    const article = BLOG_ARTICLES.find((item) => item.slug === slug);
+    const article = await getArticleBySlug(slug);
 
     if (!article) {
         notFound();
     }
 
-    const related = BLOG_ARTICLES.filter(
-        (item) =>
-            item.slug !== article.slug &&
-            item.category === article.category,
-    ).slice(0, 3);
+    const { isEnabled: isDraft } = await draftMode();
+    const allArticles = await getArticles();
 
-    const filler = BLOG_ARTICLES.filter(
-        (item) =>
-            item.slug !== article.slug &&
-            !related.some((r) => r.slug === item.slug),
-    ).slice(0, Math.max(0, 3 - related.length));
+    const related = allArticles
+        .filter(
+            (item) =>
+                item.slug !== article.slug &&
+                item.category === article.category,
+        )
+        .slice(0, 3);
+
+    const filler = allArticles
+        .filter(
+            (item) =>
+                item.slug !== article.slug &&
+                !related.some((r) => r.slug === item.slug),
+        )
+        .slice(0, Math.max(0, 3 - related.length));
 
     const relatedList = [...related, ...filler];
 
     return (
         <>
+            {isDraft && <PreviewBanner />}
             <ArticleJsonLd article={article} related={relatedList} />
             <ArticleHero article={article} />
 

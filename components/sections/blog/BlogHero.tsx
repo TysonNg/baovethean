@@ -4,9 +4,9 @@ import Eyebrow from "@/components/ui/Eyebrow";
 
 export default function BlogHero() {
     return (
-        <section className="py-20 md:py-24">
+        <section className="bg-white py-8 md:py-10">
             <Container>
-                <nav className="flex items-center gap-2 text-sm text-ink-3 mb-10">
+                <nav className="flex items-center gap-2 text-xs text-ink-3 mb-5">
                     <Link href="/" className="hover:text-ink transition-colors">
                         Trang chủ
                     </Link>
@@ -14,15 +14,11 @@ export default function BlogHero() {
                     <span className="font-semibold text-ink">Tin tức</span>
                 </nav>
 
-                <div className="max-w-3xl">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
                     <Eyebrow text="Tin tức & Kiến thức" />
-                    <h1 className="heading-1 text-ink mt-4 mb-4">
-                        Tin tức & Kiến thức an ninh
+                    <h1 className="heading-1 text-ink sm:ml-6">
+                        Bài viết & Kiến thức an ninh
                     </h1>
-                    <p className="lead text-ink-3">
-                        Cập nhật kiến thức, kinh nghiệm và giải pháp bảo vệ
-                        chuyên nghiệp cho doanh nghiệp.
-                    </p>
                 </div>
             </Container>
         </section>

@@ -25,7 +25,7 @@ export default function ArticleRelated({ title, articles }: ArticleRelatedProps)
                         </h2>
                     </div>
                     <Link
-                        href="/tin-tuc"
+                        href="/bai-viet"
                         className="inline-flex items-center gap-2 text-sm font-semibold text-ink border border-line bg-white rounded px-5 h-11 hover:border-gold transition-colors whitespace-nowrap self-start md:self-end"
                     >
                         Xem tất cả
@@ -40,7 +40,7 @@ export default function ArticleRelated({ title, articles }: ArticleRelatedProps)
                             className="bg-white rounded overflow-hidden flex flex-col"
                         >
                             <Link
-                                href={`/tin-tuc/${article.slug}`}
+                                href={`/bai-viet/${article.slug}`}
                                 className="block"
                             >
                                 <figure className="relative aspect-[16/10] bg-navy-800">
@@ -73,7 +73,7 @@ export default function ArticleRelated({ title, articles }: ArticleRelatedProps)
                                 </div>
                                 <h3 className="text-base font-semibold text-ink mb-3">
                                     <Link
-                                        href={`/tin-tuc/${article.slug}`}
+                                        href={`/bai-viet/${article.slug}`}
                                         className="hover:text-gold-deep transition-colors"
                                     >
                                         {article.title}
@@ -83,7 +83,7 @@ export default function ArticleRelated({ title, articles }: ArticleRelatedProps)
                                     {article.excerpt}
                                 </p>
                                 <Link
-                                    href={`/tin-tuc/${article.slug}`}
+                                    href={`/bai-viet/${article.slug}`}
                                     className="mt-auto inline-flex items-center gap-1 text-sm font-semibold text-gold-deep hover:text-gold transition-colors"
                                 >
                                     Đọc tiếp

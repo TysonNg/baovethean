@@ -25,7 +25,7 @@ export default function ArticleAuthorFooter({
                 </p>
             </div>
             <Link
-                href="/tin-tuc"
+                href="/bai-viet"
                 className="inline-flex items-center gap-2 text-sm font-semibold text-ink border border-line bg-white rounded px-4 h-10 hover:border-gold transition-colors whitespace-nowrap"
             >
                 Tất cả bài viết

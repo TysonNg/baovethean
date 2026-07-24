@@ -8,7 +8,7 @@ import {
 
 export default function AboutDifferentiators() {
     return (
-        <section className="bg-bg-alt py-20 md:py-24">
+        <section className="marketing-section bg-bg-alt">
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
                     <div>

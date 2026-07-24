@@ -1,61 +1,81 @@
 import type { MetadataRoute } from "next";
-import { BLOG_ARTICLES } from "@/lib/blog-data";
+import { getPayloadClient } from "@/lib/payload/getPayload";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+const BASE = "https://baovethean.vn";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const payload = await getPayloadClient();
     const now = new Date();
 
-    const articleEntries: MetadataRoute.Sitemap = BLOG_ARTICLES.map(
-        (article) => ({
-            url: `https://baovethean.vn/tin-tuc/${article.slug}`,
-            lastModified: new Date(article.isoDate),
-            changeFrequency: "monthly" as const,
-            priority: 0.6,
+    const [posts, categories] = await Promise.all([
+        payload.find({
+            collection: "posts",
+            where: { _status: { equals: "published" } },
+            sort: "-publishedAt",
+            limit: 1000,
+            depth: 0,
         }),
-    );
+        payload.find({
+            collection: "categories",
+            where: { isActive: { equals: true } },
+            limit: 1000,
+            depth: 0,
+        }),
+    ]);
 
-    return [
+    const staticRoutes: MetadataRoute.Sitemap = [
+        { url: BASE, lastModified: now, changeFrequency: "monthly", priority: 1 },
         {
-            url: "https://baovethean.vn",
-            lastModified: now,
-            changeFrequency: "monthly",
-            priority: 1,
-        },
-        {
-            url: "https://baovethean.vn/gioi-thieu",
+            url: `${BASE}/gioi-thieu`,
             lastModified: now,
             changeFrequency: "monthly",
             priority: 0.9,
         },
         {
-            url: "https://baovethean.vn/lien-he",
+            url: `${BASE}/lien-he`,
             lastModified: now,
             changeFrequency: "monthly",
             priority: 0.8,
         },
         {
-            url: "https://baovethean.vn/dich-vu",
+            url: `${BASE}/dich-vu`,
             lastModified: now,
             changeFrequency: "monthly",
             priority: 0.8,
         },
         {
-            url: "https://baovethean.vn/quy-trinh",
+            url: `${BASE}/quy-trinh`,
             lastModified: now,
             changeFrequency: "monthly",
             priority: 0.8,
         },
         {
-            url: "https://baovethean.vn/tuyen-dung",
+            url: `${BASE}/tuyen-dung`,
             lastModified: now,
             changeFrequency: "weekly",
             priority: 0.8,
         },
         {
-            url: "https://baovethean.vn/tin-tuc",
+            url: `${BASE}/bai-viet`,
             lastModified: now,
             changeFrequency: "weekly",
             priority: 0.7,
         },
-        ...articleEntries,
     ];
+
+    const categoryEntries: MetadataRoute.Sitemap = categories.docs.map((c) => ({
+        url: `${BASE}/bai-viet/danh-muc/${c.slug}`,
+        lastModified: new Date(c.updatedAt),
+        changeFrequency: "weekly",
+        priority: 0.5,
+    }));
+
+    const postEntries: MetadataRoute.Sitemap = posts.docs.map((p) => ({
+        url: `${BASE}/bai-viet/${p.slug}`,
+        lastModified: new Date(p.updatedAt),
+        changeFrequency: "monthly",
+        priority: 0.6,
+    }));
+
+    return [...staticRoutes, ...categoryEntries, ...postEntries];
 }

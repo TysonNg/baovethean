@@ -27,13 +27,13 @@ const ICONS = [
 
 export default function ServiceSectors() {
     return (
-        <section className="py-20 md:py-24">
+        <section className="marketing-section">
             <Container>
                 <Eyebrow text="Lĩnh vực phục vụ" />
                 <h2 className="heading-1 text-ink mt-4 mb-4 max-w-lg">
                     Phù hợp với nhiều mô hình doanh nghiệp.
                 </h2>
-                <p className="text-ink-3 leading-relaxed max-w-xl mb-12">
+                <p className="text-ink-3 leading-relaxed max-w-xl mb-8">
                     Bảo vệ Thế An đã triển khai dịch vụ tại các mô hình doanh
                     nghiệp đa dạng — từ khu công nghiệp đến chuỗi bán lẻ và
                     sự kiện quy mô lớn.

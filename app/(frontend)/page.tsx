@@ -1,9 +1,9 @@
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
-import Clients from "@/components/sections/Clients";
 import WhyChoose from "@/components/sections/WhyChoose";
-import CtaBand from "@/components/sections/CtaBand";
-import News from "@/components/sections/News";
+import Clients from "@/components/sections/Clients";
+import ConsultationCTA from "@/components/sections/ConsultationCTA";
+import KnowledgeInsights from "@/components/sections/KnowledgeInsights";
 
 export default function Home() {
     return (
@@ -11,9 +11,9 @@ export default function Home() {
             <Hero />
             <Services />
             <WhyChoose />
-            <News />
+            {/* <KnowledgeInsights /> */}
             <Clients />
-            <CtaBand />
+            <ConsultationCTA />
         </>
     );
 }

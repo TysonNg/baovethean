@@ -39,6 +39,52 @@
 }
 
 @layer components {
+    .clients-carousel .slick-prev,
+    .clients-carousel .slick-next {
+        z-index: 1;
+        width: 36px;
+        height: 36px;
+        color: var(--gold-deep);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: white;
+        box-shadow: 0 4px 14px rgba(7, 23, 46, 0.08);
+    }
+
+    .clients-carousel .slick-prev:hover,
+    .clients-carousel .slick-next:hover {
+        color: var(--gold);
+        background: white;
+    }
+
+    .clients-carousel .slick-prev { left: -42px; }
+    .clients-carousel .slick-next { right: -42px; }
+
+    .clients-carousel .slick-dots li button::before {
+        color: var(--gold);
+    }
+
+    /* Shared rhythm for marketing pages. Keep section density consistent. */
+    .marketing-section {
+        padding-block: 64px;
+    }
+
+    .marketing-section-compact {
+        padding-block: 48px;
+    }
+
+    .marketing-hero {
+        padding-block: 56px 64px;
+    }
+
+    .marketing-breadcrumb {
+        margin-bottom: 32px;
+    }
+
+    .marketing-intro {
+        margin-bottom: 40px;
+    }
+
     .heading-display {
         font-size: clamp(36px, 4.6vw, 60px);
         line-height: 1.1;
@@ -119,6 +165,20 @@
     }
 }
 
+@media (min-width: 768px) {
+    .marketing-section {
+        padding-block: 80px;
+    }
+
+    .marketing-section-compact {
+        padding-block: 56px;
+    }
+
+    .marketing-hero {
+        padding-block: 64px 72px;
+    }
+}
+
 @keyframes loading-shimmer {
     100% {
         transform: translateX(100%);
@@ -150,6 +210,16 @@
     100% {
         opacity: 0;
         transform: scale(1.18);
+    }
+}
+
+@keyframes solution-fade {
+    from {
+        opacity: 0.55;
+    }
+
+    to {
+        opacity: 1;
     }
 }
 

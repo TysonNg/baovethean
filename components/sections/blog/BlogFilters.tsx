@@ -7,7 +7,7 @@ interface BlogFiltersProps {
 }
 
 function filterClassName(isActive: boolean) {
-    const base = "px-4 py-2 rounded text-sm font-medium transition-colors";
+    const base = "shrink-0 px-3.5 h-10 rounded text-xs font-medium transition-colors";
 
     if (isActive) {
         return `${base} bg-navy-900 text-white`;
@@ -22,7 +22,7 @@ export default function BlogFilters({
     onCategoryChange,
 }: BlogFiltersProps) {
     return (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex w-max gap-2">
             <button
                 type="button"
                 onClick={() => onCategoryChange(null)}

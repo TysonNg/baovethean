@@ -48,23 +48,25 @@ export default function BlogGrid({ articles, categories }: BlogGridProps) {
     }
 
     return (
-        <section className="py-20 md:py-24">
+        <section className="marketing-section">
             <Container>
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-8">
-                    <BlogFilters
-                        categories={categories}
-                        activeCategory={activeCategory}
-                        onCategoryChange={handleCategoryChange}
-                    />
-                    <span className="hidden md:block px-3 py-1.5 border border-line rounded text-xs font-medium text-ink-3 whitespace-nowrap">
-                        Hiển thị {visibleStart}-{visibleEnd} trong{" "}
-                        {filtered.length} bài viết
-                    </span>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_360px] gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_300px] gap-8 lg:gap-10">
                     <div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div className="flex flex-col gap-4 mb-6">
+                            <div className="overflow-x-auto -mx-1 px-1">
+                                <BlogFilters
+                                    categories={categories}
+                                    activeCategory={activeCategory}
+                                    onCategoryChange={handleCategoryChange}
+                                />
+                            </div>
+                            <div className="flex items-center justify-between gap-3">
+                                <span className="text-xs text-ink-3">
+                                    Hiển thị {visibleStart}-{visibleEnd} trong {filtered.length} bài viết
+                                </span>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {paginated.map((article) => (
                                 <BlogCard key={article.slug} article={article} />
                             ))}

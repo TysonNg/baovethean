@@ -4,7 +4,7 @@ import { COMPANY } from "@/lib/data";
 
 export default function ContactEmergency() {
     return (
-        <section className="bg-navy-900 text-white py-16 md:py-20">
+        <section className="marketing-section-compact bg-navy-900 text-white">
             <Container>
                 <div className="grid grid-cols-1 lg:grid-cols-[60%_40%] gap-10 items-center">
                     <div>

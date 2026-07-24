@@ -17,7 +17,7 @@ export default function ArticleTags({ tags }: ArticleTagsProps) {
                 {tags.map((tag) => (
                     <Link
                         key={tag}
-                        href={`/tin-tuc?tag=${slugifyVi(tag)}`}
+                        href={`/bai-viet?tag=${slugifyVi(tag)}`}
                         className="text-sm text-ink border border-line rounded px-4 py-2 hover:border-gold hover:text-gold-deep transition-colors"
                     >
                         {tag}
