@@ -13,20 +13,19 @@ import type {
 } from "@/types";
 
 export const NAV_LINKS: NavLink[] = [
-    { label: "Trang chủ", href: "/" },
-    { label: "Giới thiệu", href: "/gioi-thieu" },
-    { label: "Dịch vụ", href: "/dich-vu" },
-    { label: "Quy trình", href: "/quy-trinh" },
-    { label: "Tuyển dụng", href: "/tuyen-dung" },
-    { label: "Tin tức", href: "/tin-tuc" },
-    { label: "Liên hệ", href: "/lien-he" },
+    { label: "TRANG CHỦ", href: "/" },
+    { label: "GIỚI THIỆU", href: "/gioi-thieu" },
+    { label: "DỊCH VỤ", href: "/dich-vu" },
+    { label: "DỰ ÁN", href: "/du-an" },
+    { label: "TIN TỨC", href: "/tin-tuc" },
+    { label: "LIÊN HỆ", href: "/lien-he" },
 ];
 
 export const STATS: Stat[] = [
-    { value: "10+", label: "Năm kinh nghiệm" },
-    { value: "500+", label: "Nhân sự chính thức" },
-    { value: "200+", label: "Khách hàng doanh nghiệp" },
-    { value: "24/7", label: "Giám sát ca trực" },
+    { value: "5+", label: "NĂM KINH NGHIỆM" },
+    { value: "10+", label: "KHÁCH HÀNG" },
+    { value: "200+", label: "NHÂN SỰ" },
+    { value: "24/7", label: "HỖ TRỢ" },
 ];
 
 export const TRUST_ITEMS: TrustItem[] = [
