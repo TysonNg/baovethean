@@ -133,7 +133,7 @@ export default function GioiThieuPage() {
             <AboutStats />
             <AboutPillars />
             <AboutDifferentiators />
-            <CtaBand />
+            {/* <CtaBand /> */}
         </>
     );
 }

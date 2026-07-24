@@ -80,7 +80,7 @@ Trang chủ marketing cho công ty dịch vụ bảo vệ Việt Nam — định
 | 07 | Process            | `#process` | 6 bước: Tiếp nhận → Khảo sát → Đề xuất → Ký hợp đồng → Triển khai → Giám sát |
 | 08 | Standards          | —          | 6 tiêu chuẩn nhân sự (lý lịch, đào tạo 120h, PCCC, xử lý tình huống, tác phong, giám sát) + seal ISO 9001:2015 |
 | 09 | Clients            | `#clients` | Logo grid 6×2 + testimonial + hợp tác summary card |
-| 10 | CTA band (navy)    | `#contact` | Hotline `1900 8688` + "Nhận báo giá" |
+| 10 | CTA band (navy)    | `#contact` | Hotline `0903304003` + "Nhận báo giá" |
 | 11 | News               | `#news`    | 3 bài viết (Kinh nghiệm · Quy trình · Nhân sự) |
 | 12 | Footer             | —          | 4 cột: brand + địa chỉ · liên kết nhanh · dịch vụ · báo giá + socials · copyright + MST |
 
@@ -136,7 +136,7 @@ Trang chủ marketing cho công ty dịch vụ bảo vệ Việt Nam — định
 ## 5. Thông tin liên hệ (placeholder)
 
 - **Địa chỉ:** Tầng 8, Tòa nhà Centec, 72–74 Nguyễn Thị Minh Khai, Q.3, TP. Hồ Chí Minh
-- **Hotline 24/7:** 1900 8688
+- **Hotline 24/7:** 0903304003
 - **Email:** contact@baovethean.vn
 - **Giờ làm việc:** T2 – T7: 08:00 – 17:30 · Hotline khẩn cấp 24/7
 - **MST:** 0312345678

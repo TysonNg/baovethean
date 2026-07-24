@@ -80,7 +80,7 @@ export default function Footer() {
                             className="inline-flex items-center gap-4 rounded focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold"
                         >
                             <Image
-                                src="/logo.png"
+                                src="/logo1.png"
                                 alt=""
                                 width={68}
                                 height={79}
@@ -154,7 +154,7 @@ export default function Footer() {
 
                     <div className="border-white/18 lg:border-l lg:pl-10">
                         <div className="flex items-center gap-4">
-                            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold text-gold">
+                            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-gold text-gold">
                                 <Phone aria-hidden="true" size={23} />
                             </span>
                             <div>
@@ -163,7 +163,7 @@ export default function Footer() {
                                 </span>
                                 <a
                                     href={phoneHref}
-                                    className="mt-1 block text-2xl font-bold text-gold-soft transition-colors hover:text-white focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-gold lg:text-[28px]"
+                                    className="mt-1 block text-xl font-bold text-gold-soft transition-colors hover:text-white focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-gold lg:text-[28px]"
                                 >
                                     {COMPANY.hotline}
                                 </a>

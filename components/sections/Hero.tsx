@@ -65,7 +65,7 @@ export default function Hero() {
                                         <IconComponent size={24} strokeWidth={2} />
                                     </div>
                                     <div>
-                                        <div className="text-2xl sm:text-3xl font-extrabold text-[#0B1E3F] tracking-tight">
+                                        <div className="text-xl sm:text-2xl font-extrabold text-[#0B1E3F] tracking-tight">
                                             {stat.value}
                                         </div>
                                         <div className="text-xs font-bold text-slate-500 tracking-wider uppercase mt-0.5">

@@ -81,7 +81,7 @@ export default function BlogSidebar({ articles, categories }: BlogSidebarProps) 
                     Cần tư vấn dịch vụ bảo vệ? Gọi hotline hoặc để lại thông tin.
                 </p>
                 <p className="text-xl font-bold text-gold font-serif mb-3">
-                    1900 8688
+                    0903304003
                 </p>
                 <Button
                     href="/lien-he"

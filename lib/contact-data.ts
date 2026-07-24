@@ -29,7 +29,7 @@ export const CONTACT_INFO_CARDS: ContactInfoCard[] = [
     {
         category: "Hotline 24/7",
         label: "Tư vấn dịch vụ",
-        primary: "1900 8688",
+        primary: "0903304003",
         details: ["Tư vấn trực tiếp 24/7", "Cuộc gọi không tính phí"],
     },
     {

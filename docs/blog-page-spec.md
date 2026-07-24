@@ -402,7 +402,7 @@ Button style: `px-4 py-2 rounded text-sm font-medium transition-colors`.
   <div className="bg-navy-900 text-white rounded p-6">
     <Eyebrow text="Liên hệ tư vấn" light />
     <p className="text-sm text-white/60 mt-3 mb-4">Cần tư vấn dịch vụ bảo vệ? Gọi hotline hoặc để lại thông tin.</p>
-    <p className="text-xl font-bold text-gold font-serif mb-4">1900 8688</p>
+    <p className="text-xl font-bold text-gold font-serif mb-4">0903304003</p>
     <Button href="/lien-he" variant="outline" arrow className="w-full border-navy-700 text-white hover:border-gold-soft">
       Yêu cầu khảo sát
     </Button>

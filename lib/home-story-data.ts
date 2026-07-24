@@ -90,7 +90,7 @@ export const HOME_CASE_STUDY = {
         title: "Mỗi mục tiêu cần một phương án bảo vệ khác nhau.",
         description: "Thế An khảo sát thực tế và đề xuất phương án phù hợp với đặc thù vận hành của doanh nghiệp.",
         primaryHref: "/lien-he",
-        phoneHref: "tel:19008688",
-        phoneLabel: "1900 8688",
+        phoneHref: "tel:0903304003",
+        phoneLabel: "0903304003 ",
     },
 };

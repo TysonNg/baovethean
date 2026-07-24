@@ -291,7 +291,7 @@ export const COMPANY: CompanyInfo = {
     description:
         "Đơn vị cung cấp giải pháp an ninh chuyên nghiệp cho doanh nghiệp Việt Nam từ năm 2014.",
     address: "Tầng 8, Tòa nhà Centec, 72–74 Nguyễn Thị Minh Khai, Q.3, TP. Hồ Chí Minh",
-    hotline: "1900 8688",
+    hotline: "0903304003",
     email: "contact@baovethean.vn",
     hours: "T2 – T7: 08:00 – 17:30 · Hotline khẩn cấp 24/7",
     mst: "0312345678",
