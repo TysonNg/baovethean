@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { ChevronDown, X, Phone } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/lib/data";
 import { ABOUT_MENU_ITEMS, ABOUT_MENU_PATHS } from "@/lib/about-menu";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { RECRUIT_MENU_ITEMS, isRecruitPath } from "@/lib/recruit-menu";
 
 interface MobileDrawerProps {
     isOpen: boolean;
@@ -16,7 +17,9 @@ interface MobileDrawerProps {
 export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     const pathname = usePathname();
     const aboutIsActive = ABOUT_MENU_PATHS.some((path) => pathname === path);
+    const recruitIsActive = isRecruitPath(pathname);
     const [aboutOpen, setAboutOpen] = useState(aboutIsActive);
+    const [recruitOpen, setRecruitOpen] = useState(recruitIsActive);
 
     useEffect(() => {
         onClose();
@@ -104,19 +107,70 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                                 )}
                             </div>
                         ) : (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                onClick={onClose}
-                                aria-current={pathname === link.href ? "page" : undefined}
-                                className={`flex min-h-11 items-center text-sm font-medium transition-colors ${
-                                    pathname === link.href
-                                        ? "text-gold-deep"
-                                        : "text-ink hover:text-gold-deep"
-                                }`}
-                            >
-                                {link.label}
-                            </Link>
+                            <Fragment key={link.href}>
+                                <Link
+                                    href={link.href}
+                                    onClick={onClose}
+                                    aria-current={pathname === link.href ? "page" : undefined}
+                                    className={`flex min-h-11 items-center text-sm font-medium transition-colors ${
+                                        pathname === link.href
+                                            ? "text-gold-deep"
+                                            : "text-ink hover:text-gold-deep"
+                                    }`}
+                                >
+                                    {link.label}
+                                </Link>
+                                {link.href === "/du-an" && (
+                                    <div>
+                                        <button
+                                            type="button"
+                                            aria-expanded={recruitOpen}
+                                            aria-controls="recruit-mobile-links"
+                                            onClick={() => setRecruitOpen((current) => !current)}
+                                            className={`flex min-h-11 w-full items-center justify-between text-left text-sm font-medium transition-colors ${
+                                                recruitIsActive
+                                                    ? "text-gold-deep"
+                                                    : "text-ink hover:text-gold-deep"
+                                            }`}
+                                        >
+                                            TUYỂN DỤNG
+                                            <ChevronDown
+                                                size={17}
+                                                aria-hidden="true"
+                                                className={`transition-transform ${
+                                                    recruitOpen ? "rotate-180" : ""
+                                                }`}
+                                            />
+                                        </button>
+                                        {recruitOpen && (
+                                            <div
+                                                id="recruit-mobile-links"
+                                                className="mb-2 border-l border-line pl-3"
+                                            >
+                                                {RECRUIT_MENU_ITEMS.map((item) => (
+                                                    <Link
+                                                        key={item.href}
+                                                        href={item.href}
+                                                        onClick={onClose}
+                                                        aria-current={
+                                                            pathname === item.href
+                                                                ? "page"
+                                                                : undefined
+                                                        }
+                                                        className={`flex min-h-11 items-center py-2 text-sm transition-colors ${
+                                                            pathname === item.href
+                                                                ? "text-gold-deep"
+                                                                : "text-ink hover:text-gold-deep"
+                                                        }`}
+                                                    >
+                                                        {item.title}
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </Fragment>
                         )
                     )}
                 </nav>

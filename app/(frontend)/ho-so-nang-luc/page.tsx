@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Check, FileText } from "lucide-react";
-import Link from "next/link";
+import { Check, Download, ExternalLink, FileText } from "lucide-react";
 import AboutPageHero from "@/components/sections/about/AboutPageHero";
+import CapabilityPdfViewer from "@/components/sections/about/CapabilityPdfViewer";
 import Container from "@/components/ui/Container";
 import { CAPABILITY_PROFILE_GROUPS } from "@/lib/about-content";
+
+const PROFILE_PDF_URL = "/documents/ho-so-nang-luc.pdf";
 
 const DESCRIPTION =
     "Trang giới thiệu hồ sơ năng lực của Bảo vệ Thế An và các nhóm thông tin chính trong tài liệu doanh nghiệp.";
@@ -38,7 +40,7 @@ export default function HoSoNangLucPage() {
                             <div className="relative">
                                 <p className="eyebrow text-gold">Hồ sơ năng lực</p>
                                 <p className="mt-4 text-3xl font-semibold leading-tight">Thế An Security</p>
-                                <p className="mt-3 text-sm text-white/65">Bản xem trước đang chờ tài liệu chính thức.</p>
+                                <p className="mt-3 text-sm text-white/65">Tài liệu chính thức đã sẵn sàng để xem và tải xuống.</p>
                             </div>
                         </div>
 
@@ -56,18 +58,37 @@ export default function HoSoNangLucPage() {
                                 ))}
                             </ul>
                             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                                <Link href="#noi-dung-ho-so" className="inline-flex min-h-12 items-center justify-center rounded bg-gold px-6 text-sm font-semibold text-white transition-colors hover:bg-gold-deep">
-                                    Xem hồ sơ
-                                </Link>
-                                <span
-                                    aria-disabled="true"
-                                    className="inline-flex min-h-12 cursor-not-allowed items-center justify-center rounded border border-line px-6 text-center text-sm font-semibold text-ink-3 opacity-70"
-                                    title="Chưa có file PDF chính thức"
+                                <a
+                                    href={PROFILE_PDF_URL}
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded bg-gold px-6 text-sm font-semibold text-white transition-colors hover:bg-gold-deep"
                                 >
-                                    Tải hồ sơ năng lực PDF — đang cập nhật
-                                </span>
+                                    <ExternalLink size={17} aria-hidden="true" />
+                                    Mở toàn màn hình
+                                </a>
+                                <a
+                                    href={PROFILE_PDF_URL}
+                                    download
+                                    className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-line px-6 text-center text-sm font-semibold text-ink transition-colors hover:border-ink"
+                                >
+                                    <Download size={17} aria-hidden="true" />
+                                    Tải hồ sơ PDF
+                                </a>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="mt-10 overflow-hidden rounded-2xl border border-line bg-white shadow-xl">
+                        <div className="border-b border-line px-6 py-5 md:px-8">
+                            <h2 className="text-xl font-semibold text-ink md:text-2xl">
+                                Xem trực tiếp hồ sơ năng lực
+                            </h2>
+                            <p className="mt-2 text-sm leading-6 text-ink-3">
+                                Cuộn trong khung bên dưới để xem toàn bộ tài liệu.
+                            </p>
+                        </div>
+                        <CapabilityPdfViewer pdfUrl={PROFILE_PDF_URL} />
                     </div>
                 </Container>
             </section>

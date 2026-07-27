@@ -1,13 +1,15 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import { Phone, Menu } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/lib/data";
 import MobileDrawer from "./MobileDrawer";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import AboutDropdown from "./AboutDropdown";
+import NavDropdown from "./NavDropdown";
+import { ABOUT_MENU_ITEMS, ABOUT_MENU_PATHS } from "@/lib/about-menu";
+import { RECRUIT_MENU_ITEMS, isRecruitPath } from "@/lib/recruit-menu";
 
 export default function Header() {
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -52,11 +54,11 @@ export default function Header() {
                 "fixed"
             } ${
                 hasOverlay
-                    ? "border-white/65 bg-[#07172E]/1 shadow-none backdrop-blur-md"
+                    ? "border-white/65 bg-[#07172E]/1 shadow-none"
                     : "border-slate-100 bg-white shadow-xs"
             }`}
         >
-            <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between h-20">
+            <div className="mx-auto flex h-20 w-full max-w-[1760px] items-center justify-between px-4 sm:px-8 lg:px-10 xl:px-12 2xl:px-14">
                 {/* Brand Logo & Slogan */}
                 <Link href="/" className="flex items-center gap-3 group">
                     <div className="relative w-11 h-11">
@@ -86,26 +88,47 @@ export default function Header() {
 
                 {/* Nav Links */}
                 <nav className="hidden lg:flex items-center gap-7">
-                    {NAV_LINKS.map((link) =>
-                        link.href === "/gioi-thieu" ? (
-                            <AboutDropdown key={`${link.href}-${pathname}`} overlay={hasOverlay} />
-                        ) : (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                aria-current={pathname === link.href ? "page" : undefined}
-                                className={`py-2 text-xs font-bold tracking-wider transition-colors ${
-                                    hasOverlay
-                                        ? "text-white/90 hover:text-white"
-                                        : pathname === link.href
-                                          ? "text-[#1D528F]"
-                                          : "text-slate-700 hover:text-[#1D528F]"
-                                }`}
-                            >
-                                {link.label}
-                            </Link>
-                        )
-                    )}
+                    {NAV_LINKS.map((link) => {
+                        if (link.href === "/gioi-thieu") {
+                            return (
+                                <NavDropdown
+                                    key={`${link.href}-${pathname}`}
+                                    label={link.label}
+                                    items={ABOUT_MENU_ITEMS}
+                                    active={ABOUT_MENU_PATHS.some((path) => pathname === path)}
+                                    overlay={hasOverlay}
+                                    panelId="about-desktop-panel"
+                                />
+                            );
+                        }
+
+                        return (
+                            <Fragment key={link.href}>
+                                <Link
+                                    href={link.href}
+                                    aria-current={pathname === link.href ? "page" : undefined}
+                                    className={`py-2 text-xs font-bold tracking-wider transition-colors ${
+                                        hasOverlay
+                                            ? "text-white/90 hover:text-white"
+                                            : pathname === link.href
+                                              ? "text-[#1D528F]"
+                                              : "text-slate-700 hover:text-[#1D528F]"
+                                    }`}
+                                >
+                                    {link.label}
+                                </Link>
+                                {link.href === "/du-an" && (
+                                    <NavDropdown
+                                        label="TUYỂN DỤNG"
+                                        items={RECRUIT_MENU_ITEMS}
+                                        active={isRecruitPath(pathname)}
+                                        overlay={hasOverlay}
+                                        panelId="recruit-desktop-panel"
+                                    />
+                                )}
+                            </Fragment>
+                        );
+                    })}
                 </nav>
 
                 {/* Hotline Button */}
