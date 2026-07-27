@@ -39,3 +39,20 @@ test("keeps Bảo vệ Thế An as the contact source", () => {
     assert.equal(COMPANY.hotline, "0903304003");
     assert.equal(COMPANY.email, "contact@baovethean.vn");
 });
+
+test("renders the approved editorial requirements page contract", async () => {
+    const source = await readFile(pagePath, "utf8");
+
+    assert.match(source, /export const metadata: Metadata/);
+    assert.match(source, /https:\/\/baovethean\.vn\/tuyen-dung\/yeu-cau/);
+    assert.match(source, /<PageBanner/);
+    assert.match(source, /title="Yêu cầu ứng viên"/);
+    assert.match(source, /Bạn đã sẵn sàng gia nhập Thế An\?/);
+    assert.match(source, /<ol/);
+    assert.match(source, /RECRUIT_REQUIREMENT_MODULES\.map/);
+    assert.match(source, /md:grid-cols-2/);
+    assert.match(source, /aria-hidden="true"/);
+    assert.match(source, /href=\{`tel:\$\{COMPANY\.hotline\}`\}/);
+    assert.match(source, /href=\{`mailto:\$\{COMPANY\.email\}`\}/);
+    assert.doesNotMatch(source, /Thanh Bình Phú Mỹ|Ms Thảo/);
+});
