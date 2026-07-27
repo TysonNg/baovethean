@@ -15,7 +15,7 @@ export default function BlogHero() {
                 </nav>
 
                 <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                    <Eyebrow text="Tin tức & Kiến thức" />
+                    <Eyebrow text="Bài viết" />
                     <h1 className="heading-1 text-ink sm:ml-6">
                         Bài viết & Kiến thức an ninh
                     </h1>

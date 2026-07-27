@@ -1,30 +1,18 @@
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { SERVICE_HERO_STATS } from "@/lib/service-data";
-import Link from "next/link";
+import PageBanner from "@/components/layout/PageBanner";
 
 export default function ServiceHero() {
     return (
-        <section className="marketing-hero bg-navy-900 text-white">
+        <>
+            <PageBanner title="Dịch vụ bảo vệ chuyên nghiệp" />
+        <section className="marketing-section-compact bg-navy-900 text-white">
             <Container>
-                <nav className="marketing-breadcrumb flex items-center gap-2 text-sm text-white/50">
-                    <Link
-                        href="/"
-                        className="hover:text-white transition-colors"
-                    >
-                        Trang chủ
-                    </Link>
-                    <span>/</span>
-                    <span className="font-semibold text-white">Dịch vụ</span>
-                </nav>
-
                 <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 items-start">
                     <div>
                         <Eyebrow text="Dịch vụ bảo vệ" light />
-                        <h1 className="heading-1 mt-4 mb-4">
-                            Dịch vụ bảo vệ chuyên nghiệp
-                        </h1>
-                        <p className="lead text-white/60">
+                        <p className="lead text-white/60 mt-4">
                             Cung cấp giải pháp bảo vệ phù hợp cho tòa nhà, nhà
                             máy, kho bãi, công trình, sự kiện và hệ thống bán
                             lẻ — vận hành theo quy trình chuẩn hóa và giám sát
@@ -50,5 +38,6 @@ export default function ServiceHero() {
                 </div>
             </Container>
         </section>
+        </>
     );
 }

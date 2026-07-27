@@ -3,11 +3,12 @@ import BlogFeatured from "@/components/sections/blog/BlogFeatured";
 import BlogGrid from "@/components/sections/blog/BlogGrid";
 import { getArticles, getBlogCategories } from "@/lib/blog/source";
 import type { BlogArticle } from "@/types";
+import PageBanner from "@/components/layout/PageBanner";
 
 export const revalidate = 60;
 
 const PAGE_URL = "https://baovethean.vn/bai-viet";
-const PAGE_TITLE = "Tin tức & Kiến thức an ninh chuyên nghiệp";
+const PAGE_TITLE = "Bài viết";
 const PAGE_DESCRIPTION =
     "Cập nhật kiến thức, kinh nghiệm và giải pháp bảo vệ chuyên nghiệp cho doanh nghiệp. Hơn 12 bài viết chuyên sâu về quy trình, nhân sự, công nghệ và xu hướng an ninh từ đội ngũ Bảo vệ Thế An.";
 
@@ -119,6 +120,7 @@ export default async function BlogPage() {
     return (
         <>
             <BlogListJsonLd articles={allArticles} />
+            <PageBanner title="Bài viết" />
             {featured && <BlogFeatured article={featured} />}
             <BlogGrid articles={articles} categories={categories} />
         </>

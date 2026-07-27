@@ -32,6 +32,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.9,
         },
         {
+            url: `${BASE}/ho-so-nang-luc`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.7,
+        },
+        {
+            url: `${BASE}/phap-ly-chung-nhan`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.7,
+        },
+        {
             url: `${BASE}/lien-he`,
             lastModified: now,
             changeFrequency: "monthly",
@@ -39,6 +51,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
         {
             url: `${BASE}/dich-vu`,
+            lastModified: now,
+            changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${BASE}/du-an`,
             lastModified: now,
             changeFrequency: "monthly",
             priority: 0.8,

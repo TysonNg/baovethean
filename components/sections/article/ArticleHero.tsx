@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { MessageCircle, Link as LinkIcon } from "lucide-react";
 import Container from "@/components/ui/Container";
+import PageBanner from "@/components/layout/PageBanner";
 import type { BlogArticle } from "@/types";
 
 function FacebookIcon({ size = 14 }: { size?: number }) {
@@ -37,31 +37,13 @@ interface ArticleHeroProps {
 
 export default function ArticleHero({ article }: ArticleHeroProps) {
     return (
-        <section className="bg-white pt-16 md:pt-20 pb-12">
+        <>
+            <PageBanner
+                title={article.title}
+                parent={{ label: "Tin tức", href: "/bai-viet" }}
+            />
+        <section className="bg-white pb-12 pt-12 md:pt-16">
             <Container>
-                <nav
-                    aria-label="Breadcrumb"
-                    className="flex items-center gap-2 text-sm text-ink-3 mb-10"
-                >
-                    <Link href="/" className="hover:text-ink transition-colors">
-                        Trang chủ
-                    </Link>
-                    <span aria-hidden="true">/</span>
-                    <Link
-                        href="/bai-viet"
-                        className="hover:text-ink transition-colors"
-                    >
-                        Tin tức
-                    </Link>
-                    <span aria-hidden="true">/</span>
-                    <span
-                        className="font-semibold text-ink"
-                        aria-current="page"
-                    >
-                        {article.category}
-                    </span>
-                </nav>
-
                 <div className="max-w-3xl">
                     <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wider mb-4">
                         <span className="font-semibold text-gold-deep">
@@ -74,10 +56,6 @@ export default function ArticleHero({ article }: ArticleHeroProps) {
                             {article.readTime} phút đọc
                         </span>
                     </div>
-
-                    <h1 className="heading-display text-ink mb-6">
-                        {article.title}
-                    </h1>
 
                     <p className="lead text-ink-3 mb-10">{article.excerpt}</p>
                 </div>
@@ -157,5 +135,6 @@ export default function ArticleHero({ article }: ArticleHeroProps) {
                 </figure>
             </Container>
         </section>
+        </>
     );
 }

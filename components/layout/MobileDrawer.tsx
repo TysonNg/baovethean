@@ -1,8 +1,12 @@
 "use client";
 
-import { X, Phone } from "lucide-react";
+import { useEffect, useState } from "react";
+import { ChevronDown, X, Phone } from "lucide-react";
 import { NAV_LINKS, COMPANY } from "@/lib/data";
+import { ABOUT_MENU_ITEMS, ABOUT_MENU_PATHS } from "@/lib/about-menu";
 import Button from "@/components/ui/Button";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface MobileDrawerProps {
     isOpen: boolean;
@@ -10,6 +14,23 @@ interface MobileDrawerProps {
 }
 
 export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
+    const pathname = usePathname();
+    const aboutIsActive = ABOUT_MENU_PATHS.some((path) => pathname === path);
+    const [aboutOpen, setAboutOpen] = useState(aboutIsActive);
+
+    useEffect(() => {
+        onClose();
+    }, [pathname, onClose]);
+
+    useEffect(() => {
+        if (!isOpen) return;
+        const closeOnEscape = (event: KeyboardEvent) => {
+            if (event.key === "Escape") onClose();
+        };
+        document.addEventListener("keydown", closeOnEscape);
+        return () => document.removeEventListener("keydown", closeOnEscape);
+    }, [isOpen, onClose]);
+
     return (
         <>
             {isOpen && (
@@ -19,6 +40,12 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                 />
             )}
             <div
+                id="mobile-navigation-drawer"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Menu điều hướng"
+                aria-hidden={!isOpen}
+                inert={!isOpen}
                 className={`fixed top-0 right-0 h-full w-72 bg-white z-50 shadow-xl transition-transform duration-300 lg:hidden ${
                     isOpen ? "translate-x-0" : "translate-x-full"
                 }`}
@@ -27,22 +54,71 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     <span className="font-semibold text-ink">Menu</span>
                     <button
                         onClick={onClose}
-                        className="w-8 h-8 flex items-center justify-center"
+                        className="flex h-11 w-11 items-center justify-center"
+                        aria-label="Đóng menu"
                     >
                         <X size={20} />
                     </button>
                 </div>
                 <nav className="flex flex-col p-6 gap-1">
-                    {NAV_LINKS.map((link) => (
-                        <a
-                            key={link.href}
-                            href={link.href}
-                            onClick={onClose}
-                            className="py-3 text-sm font-medium text-ink hover:text-gold-deep transition-colors"
-                        >
-                            {link.label}
-                        </a>
-                    ))}
+                    {NAV_LINKS.map((link) =>
+                        link.href === "/gioi-thieu" ? (
+                            <div key={link.href}>
+                                <button
+                                    type="button"
+                                    aria-expanded={aboutOpen}
+                                    aria-controls="about-mobile-links"
+                                    onClick={() => setAboutOpen((current) => !current)}
+                                    className={`flex min-h-11 w-full items-center justify-between text-left text-sm font-medium transition-colors ${
+                                        aboutIsActive ? "text-gold-deep" : "text-ink hover:text-gold-deep"
+                                    }`}
+                                >
+                                    {link.label}
+                                    <ChevronDown
+                                        size={17}
+                                        aria-hidden="true"
+                                        className={`transition-transform ${aboutOpen ? "rotate-180" : ""}`}
+                                    />
+                                </button>
+                                {aboutOpen && (
+                                    <div id="about-mobile-links" className="mb-2 border-l border-line pl-3">
+                                        {ABOUT_MENU_ITEMS.map((item) => (
+                                            <Link
+                                                key={item.href}
+                                                href={item.href}
+                                                onClick={onClose}
+                                                aria-current={pathname === item.href ? "page" : undefined}
+                                                className={`flex min-h-11 flex-col justify-center py-2 text-sm transition-colors ${
+                                                    pathname === item.href
+                                                        ? "text-gold-deep"
+                                                        : "text-ink hover:text-gold-deep"
+                                                }`}
+                                            >
+                                                <span className="font-medium">{item.title}</span>
+                                                <span className="mt-0.5 text-xs leading-4 text-ink-3">
+                                                    {item.description}
+                                                </span>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <Link
+                                key={link.href}
+                                href={link.href}
+                                onClick={onClose}
+                                aria-current={pathname === link.href ? "page" : undefined}
+                                className={`flex min-h-11 items-center text-sm font-medium transition-colors ${
+                                    pathname === link.href
+                                        ? "text-gold-deep"
+                                        : "text-ink hover:text-gold-deep"
+                                }`}
+                            >
+                                {link.label}
+                            </Link>
+                        )
+                    )}
                 </nav>
                 <div className="px-6 space-y-3">
                     <div className="flex items-center gap-2 text-sm text-ink-3">

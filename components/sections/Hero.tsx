@@ -1,48 +1,46 @@
 import Image from "next/image";
-import { ShieldCheck, UserCheck, Users, Clock } from "lucide-react";
 import { STATS } from "@/lib/data";
-
-const STAT_ICONS = [ShieldCheck, UserCheck, Users, Clock];
 
 export default function Hero() {
     return (
-        <section className="relative bg-[#0F264A] text-white pb-16 md:pb-24">
-            {/* Background Image with Dark Blue Overlay */}
-            <div className="absolute inset-0 z-0">
+        <section
+            data-home-hero
+            className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#07172E] px-4 pb-6 pt-26 text-white sm:px-6 sm:pb-8 sm:pt-28"
+        >
+            <div className="absolute inset-0 -z-10">
                 <Image
-                    src="/banner1.png"
-                    alt="Bảo Vệ Thế An - Đội ngũ bảo vệ chuyên nghiệp"
+                    src="/hero-banner1.png"
+                    alt="Ngôi nhà được bảo vệ trong đêm"
                     fill
                     priority
-                    className="object-cover object-top"
+                    sizes="100vw"
+                    className="object-cover object-center"
                 />
-                {/* Gradient overlay from left to right */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#142e5e] via-[#142e5e]/80 to-[#142e5e]/30 md:to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#142e5e] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-[#06101f]/45" />
+                <div className="absolute inset-0 bg-gradient-to-b from-[#06101f]/55 via-transparent to-[#06101f]/85" />
             </div>
 
-            {/* Main Hero Content */}
-            <div className="relative z-10 max-w-[1280px] mx-auto px-6 pt-16 pb-28 md:pt-24 md:pb-36">
-                <div className="max-w-2xl">
-                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-[1.15] tracking-tight mb-6">
-                        An toàn của bạn <br />
-                        <span className="text-white">là trách nhiệm của chúng tôi</span>
+            <div className="mx-auto flex w-full max-w-[1280px] flex-1 items-center justify-start py-10 text-start sm:py-14">
+                <div className="max-w-4xl">
+                    <h1 className="text-3xl font-extrabold leading-[1.12] tracking-tight text-white drop-shadow-lg sm:text-4xl md:text-5xl lg:text-6xl">
+                        An toàn của bạn
+                        <span className="block sm:text-3xl">là trách nhiệm của chúng tôi</span>
                     </h1>
 
-                    <p className="text-base sm:text-lg text-slate-200 leading-relaxed mb-8 max-w-xl">
+                    <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-100 drop-shadow-md sm:text-base">
                         Cung cấp dịch vụ bảo vệ chuyên nghiệp, uy tín và hiệu quả trên toàn quốc.
                     </p>
 
-                    <div className="flex flex-wrap items-center gap-4">
+                    <div className="mt-8 flex flex-col items-stretch justify-start gap-3 sm:flex-row sm:items-start sm:gap-4">
                         <a
                             href="/lien-he"
-                            className="bg-[#1D528F] hover:bg-[#164275] text-white px-7 py-3.5 rounded-lg font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-200 border border-blue-400/30"
+                            className="rounded-lg border border-blue-300/30 bg-[#1D528F] px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition-all duration-200 hover:bg-[#164275] hover:shadow-xl"
                         >
                             Nhận phương án bảo vệ
                         </a>
                         <a
                             href="#services"
-                            className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-7 py-3.5 rounded-lg font-semibold text-sm backdrop-blur-sm transition-all duration-200"
+                            className="rounded-lg border border-white/40 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white shadow-lg backdrop-blur-sm transition-all duration-200 hover:bg-white/20"
                         >
                             Tìm hiểu thêm
                         </a>
@@ -50,32 +48,27 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Floating Stats Card Bar */}
-            <div className="absolute bottom-[-4rem] bg-white rounded-xl shadow place-self-center z-20 max-w-[1200px] mx-auto">
-                <div className="p-6 md:p-8">
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 divider-y lg:divider-y-0 lg:divider-x">
-                        {STATS.map((stat, index) => {
-                            const IconComponent = STAT_ICONS[index] || ShieldCheck;
-                            return (
-                                <div
-                                    key={stat.label}
-                                    className="flex items-center gap-4 py-2 lg:py-0 px-2 first:pl-0"
-                                >
-                                    <div className="w-12 h-12 rounded-lg bg-blue-50 text-[#1D528F] flex items-center justify-center shrink-0">
-                                        <IconComponent size={24} strokeWidth={2} />
-                                    </div>
-                                    <div>
-                                        <div className="text-xl sm:text-2xl font-extrabold text-[#0B1E3F] tracking-tight">
-                                            {stat.value}
-                                        </div>
-                                        <div className="text-xs font-bold text-slate-500 tracking-wider uppercase mt-0.5">
-                                            {stat.label}
-                                        </div>
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
+            <div className="mx-auto w-full max-w-[960px] pb-2 sm:pb-4">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4 sm:gap-x-8">
+                    {STATS.map((stat, index) => (
+                        <div
+                            key={stat.label}
+                            className={`min-w-0 border-white/25 px-3 py-2 text-center ${
+                                index % 2 === 1 ? "border-l" : ""
+                            } ${
+                                index >= 2
+                                    ? "border-t pt-6 sm:border-t-0 sm:pt-2"
+                                    : ""
+                            } sm:border-l sm:first:border-l-0`}
+                        >
+                            <div className="text-2xl font-bold leading-none tracking-tight text-white drop-shadow-lg sm:text-3xl lg:text-[34px]">
+                                {stat.value}
+                            </div>
+                            <div className="mt-2.5 text-[10px] font-medium uppercase tracking-[0.08em] text-slate-200 drop-shadow-md sm:text-xs">
+                                {stat.label}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </section>

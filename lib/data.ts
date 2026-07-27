@@ -22,8 +22,8 @@ export const NAV_LINKS: NavLink[] = [
 ];
 
 export const STATS: Stat[] = [
-    { value: "5+", label: "NĂM KINH NGHIỆM" },
-    { value: "10+", label: "KHÁCH HÀNG" },
+    { value: "10+", label: "NĂM KINH NGHIỆM" },
+    { value: "100+", label: "KHÁCH HÀNG" },
     { value: "200+", label: "NHÂN SỰ" },
     { value: "24/7", label: "HỖ TRỢ" },
 ];

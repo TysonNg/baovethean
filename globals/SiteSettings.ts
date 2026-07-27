@@ -36,7 +36,14 @@ export const SiteSettings: GlobalConfig = {
                         { name: "hotline", type: "text" },
                         { name: "email", type: "email" },
                         { name: "workingHours", type: "text" },
-                        { name: "googleMapsUrl", type: "text" },
+                        {
+                            name: "googleMapsUrl",
+                            type: "text",
+                            admin: {
+                                description:
+                                    "URL Google Maps embed cho bản đồ ở footer. Nếu để trống, hệ thống sẽ tự tạo bản đồ từ địa chỉ công ty.",
+                            },
+                        },
                         {
                             name: "socialLinks",
                             type: "array",

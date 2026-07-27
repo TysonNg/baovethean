@@ -13,16 +13,6 @@ export default function BlogFeatured({ article }: BlogFeaturedProps) {
     return (
         <section className="marketing-section bg-bg-alt">
             <Container>
-                <nav
-                    aria-label="Breadcrumb"
-                    className="flex items-center gap-2 text-xs text-ink-3 mb-6"
-                >
-                    <Link href="/" className="hover:text-ink transition-colors">
-                        Trang chủ
-                    </Link>
-                    <span aria-hidden="true">/</span>
-                    <span className="font-semibold text-ink">Tin tức</span>
-                </nav>
                 <Eyebrow text="Bài viết nổi bật" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-6 items-center">

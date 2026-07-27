@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import ContactHero from "@/components/sections/contact/ContactHero";
 import ContactInfo from "@/components/sections/contact/ContactInfo";
-import ContactForm from "@/components/sections/contact/ContactForm";
-import ContactOffices from "@/components/sections/contact/ContactOffices";
-import ContactEmergency from "@/components/sections/contact/ContactEmergency";
-import ContactCoverage from "@/components/sections/contact/ContactCoverage";
-import ContactFAQ from "@/components/sections/contact/ContactFAQ";
-import { CONTACT_FAQS } from "@/lib/contact-data";
+import ContactMap from "@/components/sections/contact/ContactMap";
+import { COMPANY } from "@/lib/data";
+import { getPayloadClient } from "@/lib/payload/getPayload";
 
 const PAGE_URL = "https://baovethean.vn/lien-he";
 const PAGE_TITLE = "Liên hệ tư vấn — Bảo vệ Thế An";
@@ -54,19 +51,6 @@ function ContactJsonLd() {
         inLanguage: "vi-VN",
     };
 
-    const faqPage = {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: CONTACT_FAQS.map((faq) => ({
-            "@type": "Question",
-            name: faq.question,
-            acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer,
-            },
-        })),
-    };
-
     const breadcrumb = {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
@@ -96,27 +80,42 @@ function ContactJsonLd() {
             />
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPage) }}
-            />
-            <script
-                type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
             />
         </>
     );
 }
 
-export default function ContactPage() {
+async function getContactSettings() {
+    try {
+        const payload = await getPayloadClient();
+        return await payload.findGlobal({ slug: "site-settings" });
+    } catch {
+        return null;
+    }
+}
+
+export default async function ContactPage() {
+    const settings = await getContactSettings();
+    const details = {
+        address: settings?.address?.trim() || COMPANY.address,
+        hotline:
+            settings?.hotline?.trim() ||
+            settings?.phone?.trim() ||
+            COMPANY.hotline,
+        email: settings?.email?.trim() || COMPANY.email,
+        hours: settings?.workingHours?.trim() || COMPANY.hours,
+    };
+
     return (
         <>
             <ContactJsonLd />
             <ContactHero />
-            <ContactInfo />
-            <ContactForm />
-            <ContactOffices />
-            <ContactEmergency />
-            <ContactCoverage />
-            <ContactFAQ />
+            <ContactInfo details={details} />
+            <ContactMap
+                details={details}
+                mapUrl={settings?.googleMapsUrl}
+            />
         </>
     );
 }

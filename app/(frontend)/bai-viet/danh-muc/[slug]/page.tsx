@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import BlogCard from "@/components/sections/blog/BlogCard";
 import BlogSidebar from "@/components/sections/blog/BlogSidebar";
+import PageBanner from "@/components/layout/PageBanner";
 import {
     getArticlesByCategory,
     getBlogCategories,
@@ -92,39 +92,21 @@ export default async function CategoryPage({ params }: PageParams) {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
             />
 
-            <section className="bg-bg-alt py-16 md:py-20">
-                <Container>
-                    <nav
-                        aria-label="Breadcrumb"
-                        className="flex items-center gap-2 text-sm text-ink-3 mb-8"
-                    >
-                        <Link href="/" className="hover:text-ink transition-colors">
-                            Trang chủ
-                        </Link>
-                        <span aria-hidden="true">/</span>
-                        <Link
-                            href="/bai-viet"
-                            className="hover:text-ink transition-colors"
-                        >
-                            Tin tức
-                        </Link>
-                        <span aria-hidden="true">/</span>
-                        <span className="font-semibold text-ink" aria-current="page">
-                            {category.name}
-                        </span>
-                    </nav>
+            <PageBanner
+                title={category.name}
+                parent={{ label: "Tin tức", href: "/bai-viet" }}
+            />
 
+            {category.description && (
+            <section className="bg-bg-alt py-10 md:py-12">
+                <Container>
                     <Eyebrow text="Chuyên mục" />
-                    <h1 className="heading-display text-ink mt-4">
-                        {category.name}
-                    </h1>
-                    {category.description && (
-                        <p className="lead text-ink-3 mt-4 max-w-2xl">
-                            {category.description}
-                        </p>
-                    )}
+                    <p className="lead text-ink-3 mt-4 max-w-2xl">
+                        {category.description}
+                    </p>
                 </Container>
             </section>
+            )}
 
             <section className="py-20 md:py-24">
                 <Container>

@@ -39,7 +39,7 @@ export default function HomeIntroduction() {
             <Container>
                 <div className="mx-auto max-w-4xl text-center">
                     <p className="eyebrow text-gold-deep">Về chúng tôi</p>
-                    <h2 id="home-introduction-heading" className="heading-1 mt-4 text-ink">
+                    <h2 id="home-introduction-heading" className="heading-1 mt-4 text-ink text-nowrap">
                         CÔNG TY TNHH DỊCH VỤ BẢO VỆ THẾ AN
                     </h2>
                     <p className="mt-4 text-lg text-ink-3">Uy tín tạo thương hiệu – An toàn cho cộng đồng</p>
@@ -79,7 +79,7 @@ export default function HomeIntroduction() {
                     </div>
                 </div>
 
-                <dl className="mt-6 grid grid-cols-2 overflow-hidden rounded-2xl border border-line bg-white shadow-sm lg:grid-cols-4">
+                {/* <dl className="mt-6 grid grid-cols-2 overflow-hidden rounded-2xl border border-line bg-white shadow-sm lg:grid-cols-4">
                     {STATS.map(({ value, label, icon: Icon }, index) => (
                         <div key={label} className={`flex items-center gap-3 p-5 md:p-6 ${index > 0 ? "border-t border-line lg:border-l lg:border-t-0" : ""}`}>
                             <Icon className="hidden shrink-0 text-navy-900 sm:block" size={30} aria-hidden="true" />
@@ -89,7 +89,7 @@ export default function HomeIntroduction() {
                             </div>
                         </div>
                     ))}
-                </dl>
+                </dl> */}
 
                 <div className="relative mt-20 text-center">
                     <ShieldCheck className="pointer-events-none absolute -right-4 -top-16 hidden h-72 w-72 text-navy-900/[0.04] lg:block" strokeWidth={1} aria-hidden="true" />

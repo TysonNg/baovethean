@@ -1,31 +1,21 @@
 import Link from "next/link";
+import PageBanner from "@/components/layout/PageBanner";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { PROCESS_HERO_META, PROCESS_STEP_NAV } from "@/lib/process-data";
 
 export default function ProcessHero() {
     return (
-        <section className="bg-white pt-16 md:pt-20">
+        <>
+            <PageBanner title="Quy trình hợp tác" />
+        <section className="bg-white pt-12 md:pt-16">
             <Container>
-                <nav
-                    aria-label="Breadcrumb"
-                    className="flex items-center gap-2 text-sm text-ink-3 mb-10"
-                >
-                    <Link href="/" className="hover:text-ink transition-colors">
-                        Trang chủ
-                    </Link>
-                    <span aria-hidden="true">/</span>
-                    <span className="font-semibold text-ink" aria-current="page">
-                        Quy trình hợp tác
-                    </span>
-                </nav>
-
                 <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-10 items-start">
                     <div>
                         <Eyebrow text="Quy trình hợp tác" />
-                        <h1 className="heading-1 text-ink mt-4 mb-6">
+                        <h2 className="heading-1 text-ink mt-4 mb-6">
                             Sáu bước minh bạch — từ tiếp nhận đến vận hành ổn định.
-                        </h1>
+                        </h2>
                         <p className="lead text-ink-3 max-w-xl">
                             Quy trình áp dụng cho mọi hợp đồng — đảm bảo khách
                             hàng hiểu rõ phạm vi, trách nhiệm và phương án triển
@@ -80,5 +70,6 @@ export default function ProcessHero() {
                 </Container>
             </nav>
         </section>
+        </>
     );
 }

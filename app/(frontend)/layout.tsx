@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Be_Vietnam_Pro, Source_Serif_4 } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FloatingContact from "@/components/layout/FloatingContact";
 import JsonLd from "@/components/layout/JsonLd";
 import "./globals.css";
 
@@ -90,6 +91,9 @@ export const viewport: Viewport = {
     initialScale: 1,
 };
 
+// Footer content comes from Payload and must stay current without a rebuild.
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -104,6 +108,7 @@ export default function RootLayout({
                 <Header />
                 <main className="flex-1">{children}</main>
                 <Footer />
+                <FloatingContact />
                 <JsonLd />
             </body>
         </html>

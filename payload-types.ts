@@ -726,6 +726,9 @@ export interface SiteSetting {
   hotline?: string | null;
   email?: string | null;
   workingHours?: string | null;
+  /**
+   * URL Google Maps embed cho bản đồ ở footer. Nếu để trống, hệ thống sẽ tự tạo bản đồ từ địa chỉ công ty.
+   */
   googleMapsUrl?: string | null;
   socialLinks?:
     | {
