@@ -70,6 +70,7 @@ export interface CompanyInfo {
     email: string;
     hours: string;
     mst: string;
+    foundedDate: string;
 }
 
 export interface ContactBenefit {

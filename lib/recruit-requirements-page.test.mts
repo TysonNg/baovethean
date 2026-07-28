@@ -37,7 +37,7 @@ test("exposes the four approved recruitment requirement modules in order", () =>
 test("keeps Bảo vệ Thế An as the contact source", () => {
     assert.equal(COMPANY.name, "Bảo vệ Thế An");
     assert.equal(COMPANY.hotline, "0903304003");
-    assert.equal(COMPANY.email, "contact@baovethean.vn");
+    assert.equal(COMPANY.email, "baovethean@gmail.com");
 });
 
 test("renders the approved editorial requirements page contract", async () => {

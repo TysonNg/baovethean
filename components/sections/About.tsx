@@ -1,7 +1,7 @@
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import Photo from "@/components/ui/Photo";
-import { CORE_VALUES } from "@/lib/data";
+import { COMPANY, CORE_VALUES } from "@/lib/data";
 
 
 
@@ -33,11 +33,11 @@ export default function About() {
                     <div>
                         <Eyebrow text="Về Bảo vệ Thế An" />
                         <h2 className="heading-1 text-ink mt-4 mb-5">
-                            Mười năm xây dựng uy tín — phục vụ doanh nghiệp bằng
+                            Xây dựng uy tín — phục vụ doanh nghiệp bằng
                             kỷ luật và tận tâm.
                         </h2>
                         <p className="text-ink-3 mb-3 leading-relaxed">
-                            Thành lập năm 2014, Bảo vệ Thế An cung cấp giải pháp an
+                            Thành lập năm {COMPANY.foundedDate.slice(0, 4)}, Bảo vệ Thế An cung cấp giải pháp an
                             ninh toàn diện cho hơn 200 doanh nghiệp tại 18 tỉnh
                             thành, đội ngũ hơn 500 nhân sự đã được huấn luyện chuyên
                             sâu, đều tra nghiệm về đạo đức nghề nghiệp.

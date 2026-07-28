@@ -23,16 +23,11 @@ export default function JsonLd() {
         taxID: COMPANY.mst,
         address: {
             "@type": "PostalAddress",
-            streetAddress: "72–74 Nguyễn Thị Minh Khai",
-            addressLocality: "Quận 3",
+            streetAddress: "436/59/40 Cách mạng Tháng Tám",
+            addressLocality: "Phường Nhiêu Lộc",
             addressRegion: "TP. Hồ Chí Minh",
             postalCode: "70000",
             addressCountry: "VN",
-        },
-        geo: {
-            "@type": "GeoCoordinates",
-            latitude: 10.7878,
-            longitude: 106.6948,
         },
         openingHoursSpecification: [
             {
@@ -56,7 +51,7 @@ export default function JsonLd() {
                 description: "Hotline khẩn cấp 24/7",
             },
         ],
-        foundingDate: "2014",
+        foundingDate: COMPANY.foundedDate,
         numberOfEmployees: {
             "@type": "QuantitativeValue",
             value: 500,

@@ -2,7 +2,7 @@ export const COMPANY_OVERVIEW = {
     legalName: "Công ty TNHH Dịch vụ Bảo vệ Thế An",
     tradingName: "Thế An Security",
     internationalName: "THE AN SECURITY SERVICES CO., LTD",
-    foundedDate: "12/08/2018",
+    foundedDate: "11/09/2023",
     field: "Cung cấp dịch vụ bảo vệ chuyên nghiệp",
     summary:
         "Bảo vệ Thế An cung cấp dịch vụ bảo vệ cho doanh nghiệp và tổ chức, với định hướng xây dựng môi trường an toàn, kỷ luật và ổn định.",

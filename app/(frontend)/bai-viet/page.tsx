@@ -4,6 +4,7 @@ import BlogGrid from "@/components/sections/blog/BlogGrid";
 import { getArticles, getBlogCategories } from "@/lib/blog/source";
 import type { BlogArticle } from "@/types";
 import PageBanner from "@/components/layout/PageBanner";
+import { COMPANY } from "@/lib/data";
 
 export const revalidate = 60;
 
@@ -53,7 +54,7 @@ function BlogListJsonLd({ articles }: { articles: BlogArticle[] }) {
         inLanguage: "vi-VN",
         publisher: {
             "@type": "Organization",
-            name: "Công ty Cổ phần Dịch vụ Bảo vệ Thế An",
+            name: COMPANY.fullName,
             url: "https://baovethean.vn",
         },
         blogPost: articles.slice(0, 12).map((article) => ({

@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/layout/FloatingContact";
 import JsonLd from "@/components/layout/JsonLd";
+import { COMPANY } from "@/lib/data";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -24,12 +25,11 @@ export const metadata: Metadata = {
         default: "Dịch vụ bảo vệ chuyên nghiệp | Bảo vệ Thế An",
         template: "%s | Bảo vệ Thế An",
     },
-    description:
-        "Công ty Cổ phần Dịch vụ Bảo vệ Thế An — cung cấp đội ngũ bảo vệ được đào tạo bài bản, quy trình vận hành chặt chẽ và giám sát 24/7 cho doanh nghiệp Việt Nam từ năm 2014. Hơn 500 nhân sự, 200+ khách hàng, hiện diện tại 18 tỉnh thành.",
+    description: `${COMPANY.fullName} — cung cấp đội ngũ bảo vệ được đào tạo bài bản, quy trình vận hành chặt chẽ và giám sát 24/7 cho doanh nghiệp Việt Nam.`,
     applicationName: "Bảo vệ Thế An",
-    authors: [{ name: "Công ty Cổ phần Dịch vụ Bảo vệ Thế An" }],
+    authors: [{ name: COMPANY.fullName }],
     creator: "Bảo vệ Thế An",
-    publisher: "Công ty Cổ phần Dịch vụ Bảo vệ Thế An",
+    publisher: COMPANY.fullName,
     category: "Security Services",
     formatDetection: {
         email: false,

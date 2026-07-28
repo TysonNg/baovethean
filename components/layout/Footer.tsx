@@ -2,16 +2,6 @@ import { ArrowRight, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { COMPANY, FOOTER_LINKS, FOOTER_SERVICES } from "@/lib/data";
-import { getPayloadClient } from "@/lib/payload/getPayload";
-
-async function getSiteSettings() {
-    try {
-        const payload = await getPayloadClient();
-        return await payload.findGlobal({ slug: "site-settings" });
-    } catch {
-        return null;
-    }
-}
 
 function getMapEmbedUrl(mapUrl: string | null | undefined, address: string) {
     const configuredUrl = mapUrl?.trim();
@@ -78,11 +68,10 @@ function FooterNav({
     );
 }
 
-export default async function Footer() {
+export default function Footer() {
     const phoneHref = `tel:${COMPANY.hotline.replaceAll(" ", "")}`;
-    const settings = await getSiteSettings();
-    const mapAddress = settings?.address?.trim() || COMPANY.address;
-    const mapEmbedUrl = getMapEmbedUrl(settings?.googleMapsUrl, mapAddress);
+    const mapAddress = COMPANY.address;
+    const mapEmbedUrl = getMapEmbedUrl(undefined, mapAddress);
 
     return (
         <footer className="border-t border-white/10 bg-navy-900 text-white">

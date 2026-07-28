@@ -98,12 +98,9 @@ async function getContactSettings() {
 export default async function ContactPage() {
     const settings = await getContactSettings();
     const details = {
-        address: settings?.address?.trim() || COMPANY.address,
-        hotline:
-            settings?.hotline?.trim() ||
-            settings?.phone?.trim() ||
-            COMPANY.hotline,
-        email: settings?.email?.trim() || COMPANY.email,
+        address: COMPANY.address,
+        hotline: COMPANY.hotline,
+        email: COMPANY.email,
         hours: settings?.workingHours?.trim() || COMPANY.hours,
     };
 
@@ -114,7 +111,6 @@ export default async function ContactPage() {
             <ContactInfo details={details} />
             <ContactMap
                 details={details}
-                mapUrl={settings?.googleMapsUrl}
             />
         </>
     );

@@ -6,7 +6,7 @@ import type {
 } from "@/types";
 
 export const ABOUT_HERO_META: AboutHeroMeta[] = [
-    { label: "Thành lập", value: "Năm 2014" },
+    { label: "Thành lập", value: "Năm 2023" },
     { label: "Trụ sở chính", value: "TP. Hồ Chí Minh" },
     { label: "Văn phòng vùng", value: "Hà Nội · Đà Nẵng · Bình Dương" },
     { label: "Giấy phép", value: "ANTT · ISO 9001:2015" },
@@ -15,9 +15,9 @@ export const ABOUT_HERO_META: AboutHeroMeta[] = [
 
 export const ABOUT_STATS: AboutStat[] = [
     {
-        value: "10+",
-        eyebrow: "Kể từ 2014",
-        label: "Năm kinh nghiệm",
+        value: "2023",
+        eyebrow: "Kể từ 2023",
+        label: "Năm thành lập",
     },
     {
         value: "200+",
@@ -43,7 +43,7 @@ export const ABOUT_PILLARS: AboutPillar[] = [
         title: "Sứ mệnh",
         description:
             "Cung cấp dịch vụ bảo vệ tin cậy, giúp doanh nghiệp vận hành an toàn và hiệu quả — để khách hàng có thể tập trung vào hoạt động cốt lõi của mình.",
-        footnote: "Sứ mệnh · 2014–nay",
+        footnote: "Sứ mệnh · 2023–nay",
     },
     {
         code: "Phần · 02",

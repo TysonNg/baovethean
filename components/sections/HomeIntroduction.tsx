@@ -11,13 +11,14 @@ import {
 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Image from "next/image";
+import { COMPANY } from "@/lib/data";
 
 const COMPANY_FACTS = [
     { label: "Tên công ty", value: "CÔNG TY TNHH DỊCH VỤ BẢO VỆ THẾ AN", icon: Building2 },
     { label: "Tên quốc tế", value: "THE AN SECURITY SERVICES CO., LTD", icon: Globe2 },
-    { label: "Trụ sở chính", value: "TP. Hồ Chí Minh", icon: MapPin },
-    { label: "Điện thoại", value: "028 22535426 – 028 22535427", icon: Phone },
-    { label: "Email", value: "info@baovethean.com.vn", icon: Mail },
+    { label: "Trụ sở chính", value: COMPANY.address, icon: MapPin },
+    { label: "Điện thoại", value: COMPANY.hotline, icon: Phone },
+    { label: "Email", value: COMPANY.email, icon: Mail },
 ] as const;
 
 const STATS = [
@@ -104,7 +105,7 @@ export default function HomeIntroduction() {
                     <p className="eyebrow text-gold-deep">Giới thiệu</p>
                     <h3 className="heading-2 mt-4 text-ink">Giới thiệu công ty bảo vệ Thế An</h3>
                     <div className="mx-auto mt-6 max-w-4xl space-y-4 text-left leading-relaxed text-ink-3">
-                        <p><strong className="font-semibold text-ink">Công ty Bảo vệ Thế An</strong> được thành lập vào ngày 12/08/2018, do các cựu sĩ quan quân đội và cộng an giàu kinh nghiệm trong lĩnh vực an ninh sáng lập và lãnh đạo.</p>
+                        <p><strong className="font-semibold text-ink">Công ty Bảo vệ Thế An</strong> được thành lập vào ngày 11/09/2023, do các cựu sĩ quan quân đội và công an giàu kinh nghiệm trong lĩnh vực an ninh sáng lập và lãnh đạo.</p>
                         <p>Chúng tôi là đơn vị tiên phong cung cấp dịch vụ bảo vệ chuyên nghiệp, kết hợp đội ngũ được tuyển chọn kỹ lưỡng, đào tạo định kỳ và quy trình vận hành chuẩn hóa.</p>
                         <p>Các gói dịch vụ linh hoạt từ phổ thông đến cao cấp PRO, phù hợp cho nhà máy, văn phòng, tòa nhà, chung cư, công trình, trường học, bệnh viện, siêu thị và sự kiện.</p>
                     </div>

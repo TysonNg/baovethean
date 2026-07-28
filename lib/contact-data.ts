@@ -5,6 +5,7 @@ import type {
     CoverageRegion,
     FAQItem,
 } from "@/types";
+import { COMPANY } from "@/lib/data";
 
 export const CONTACT_BENEFITS: ContactBenefit[] = [
     {
@@ -29,22 +30,22 @@ export const CONTACT_INFO_CARDS: ContactInfoCard[] = [
     {
         category: "Hotline 24/7",
         label: "Tư vấn dịch vụ",
-        primary: "0903304003",
+        primary: COMPANY.hotline,
         details: ["Tư vấn trực tiếp 24/7", "Cuộc gọi không tính phí"],
     },
     {
         category: "Email công ty",
         label: "Yêu cầu báo giá",
-        primary: "contact@baovethean.vn",
+        primary: COMPANY.email,
         details: ["Phản hồi trong 4 giờ", "Hỗ trợ tiếng Việt & tiếng Anh"],
     },
     {
         category: "Trụ sở chính",
         label: "Văn phòng TP.HCM",
-        primary: "Tầng 8, Tòa nhà Centec",
+        primary: "436/59/40 Cách mạng Tháng Tám",
         details: [
-            "72–74 Nguyễn Thị Minh Khai, Q.3",
-            "Hồ Chí Minh, Việt Nam",
+            "Phường Nhiêu Lộc",
+            "TP Hồ Chí Minh, Việt Nam",
         ],
     },
     {
@@ -69,9 +70,8 @@ export const OFFICES: Office[] = [
         id: "hcm",
         name: "Trụ sở chính – TP. Hồ Chí Minh",
         label: "TP. Hồ Chí Minh",
-        address:
-            "Tầng 8, Tòa nhà Centec, 72–74 Nguyễn Thị Minh Khai, Q.3, TP. Hồ Chí Minh",
-        phone: "(028) 3823 8688",
+        address: COMPANY.address,
+        phone: COMPANY.hotline,
     },
     {
         id: "hanoi",
