@@ -17,6 +17,8 @@ export interface TrainingGallerySlot {
     number: string;
     label: string;
     aspect: "landscape" | "portrait";
+    image: string;
+    alt: string;
 }
 
 export const TRAINING_MODULES: TrainingModule[] = [
@@ -114,9 +116,9 @@ export const TRAINING_STEPS: TrainingStep[] = [
 ];
 
 export const TRAINING_GALLERY_SLOTS: TrainingGallerySlot[] = [
-    { number: "01", label: "Ảnh đào tạo 01", aspect: "landscape" },
-    { number: "02", label: "Ảnh đào tạo 02", aspect: "portrait" },
-    { number: "03", label: "Ảnh đào tạo 03", aspect: "landscape" },
-    { number: "04", label: "Ảnh đào tạo 04", aspect: "portrait" },
-    { number: "05", label: "Ảnh đào tạo 05", aspect: "landscape" },
+    { number: "01", label: "Thực hành chữa cháy", aspect: "landscape", image: "/images/anh_nhan_vien/1784738532973_1512254896023574579_413629033841281138_a04b6f33b35679568f5a5f8c49eb2b3a.jpg", alt: "Nhân viên bảo vệ Thế An đồng loạt thực hành chữa cháy" },
+    { number: "02", label: "Diễn tập PCCC", aspect: "portrait", image: "/images/anh_nhan_vien/1784737796968_1512254896023574579_413629033841281138_6adc5a430ca7ab207ab8c24a9405da81.jpg", alt: "Nhân viên bảo vệ Thế An diễn tập phòng cháy chữa cháy" },
+    { number: "03", label: "Điều lệnh đội ngũ", aspect: "landscape", image: "/images/anh_nhan_vien/1784734717643_1512254896023574579_413629033841281138_47cfea147014387ad152d61510e2782d.jpg", alt: "Đội ngũ nhân viên bảo vệ Thế An thực hiện điều lệnh" },
+    { number: "04", label: "Tác phong chuyên nghiệp", aspect: "portrait", image: "/images/anh_nhan_vien/1784737057238_1512254896023574579_413629033841281138_2ba72e6e240361059d8b0968e57b836e.jpg", alt: "Đội ngũ nhân viên bảo vệ Thế An trong đồng phục" },
+    { number: "05", label: "Sẵn sàng nhận nhiệm vụ", aspect: "landscape", image: "/images/anh_nhan_vien/1784737520772_1512254896023574579_413629033841281138_31b535d4193c6820cb174cd61ce63332.jpg", alt: "Nhân viên bảo vệ Thế An sẵn sàng nhận nhiệm vụ" },
 ];

@@ -5,6 +5,15 @@ import Photo from "@/components/ui/Photo";
 import { SERVICE_DETAILS } from "@/lib/service-data";
 
 export default function ServiceGroups() {
+    const serviceImages = [
+        "/images/anh_nhan_vien/1784738532973_1512254896023574579_413629033841281138_a04b6f33b35679568f5a5f8c49eb2b3a.jpg",
+        "/images/anh_nhan_vien/1784735915183_1512254896023574579_413629033841281138_282f410cfec55c3f3d9d27940f880c7a.jpg",
+        "/images/anh_nhan_vien/1784734717643_1512254896023574579_413629033841281138_47cfea147014387ad152d61510e2782d.jpg",
+        "/images/anh_nhan_vien/1784737520772_1512254896023574579_413629033841281138_31b535d4193c6820cb174cd61ce63332.jpg",
+        "/images/anh_nhan_vien/1784736767820_1512254896023574579_413629033841281138_043b1f2d9ed77e4fb74f4a2bd275440c.jpg",
+        "/images/anh_nhan_vien/1784737194833_1512254896023574579_413629033841281138_45c16b85a56d037a53421dae11d6ac7c.jpg",
+    ];
+
     return (
         <section className="marketing-section bg-bg-alt">
             <Container>
@@ -23,12 +32,14 @@ export default function ServiceGroups() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {SERVICE_DETAILS.map((service) => (
+                    {SERVICE_DETAILS.map((service, index) => (
                         <div
                             key={service.code}
                             className="bg-white rounded overflow-hidden"
                         >
                             <Photo
+                                src={serviceImages[index]}
+                                alt={`Nhân viên Bảo vệ Thế An — ${service.name}`}
                                 label={service.code.replace(
                                     "DV · ",
                                     "IMG · 0",

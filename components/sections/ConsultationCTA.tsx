@@ -78,7 +78,7 @@ export default function ConsultationCTA() {
 
                 <div className="relative min-h-[390px] bg-navy-900 sm:min-h-[480px] lg:min-h-full">
                     <Image
-                        src="/images/home-solutions/office-security.webp"
+                        src="/images/home-solutions/office-security-white-uniform.png"
                         alt="Đội ngũ bảo vệ Thế An đang thực hiện kiểm soát và tư vấn an ninh tại tòa nhà"
                         fill
                         sizes="(max-width: 1023px) 100vw, 46vw"

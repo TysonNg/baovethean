@@ -21,6 +21,8 @@ export default function ServiceApproach() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
                     <Photo
                         label="THAM KHẢO"
+                        src="/images/anh_nhan_vien/1784737194833_1512254896023574579_413629033841281138_45c16b85a56d037a53421dae11d6ac7c.jpg"
+                        alt="Đội phản ứng nhanh của Bảo vệ Thế An"
                         className="aspect-[4/5] rounded"
                         overlay={
                             <div className="p-5">

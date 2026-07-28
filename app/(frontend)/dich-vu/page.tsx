@@ -26,7 +26,7 @@ export default function DichVuPage() {
         <>
             <section data-page-banner className="relative isolate overflow-hidden bg-navy-900 pb-16 pt-32 text-white md:pb-20 md:pt-40">
                 <Image
-                    src="/images/home-solutions/factory-security.webp"
+                    src="/images/home-solutions/factory-security-white-uniform.png"
                     alt=""
                     fill
                     priority

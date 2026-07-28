@@ -19,7 +19,7 @@ export const HOME_SOLUTIONS: HomeSolution[] = [
         description:
             "Phương án an ninh theo nhịp vận hành sản xuất, giúp kiểm soát chặt từ cổng vào đến khu vực kho và dây chuyền.",
         benefits: ["Kiểm soát người và phương tiện", "Tuần tra theo điểm, theo ca", "Ứng phó sự cố liên tục 24/7"],
-        image: "/images/home-solutions/factory-security.webp",
+        image: "/images/home-solutions/factory-security-white-uniform.png",
         imageAlt: "Nhân viên bảo vệ kiểm tra phương tiện tại cổng nhà máy",
         href: "/bai-viet/quy-trinh-bao-ve-nha-may-chuyen-nghiep",
     },
@@ -31,7 +31,7 @@ export const HOME_SOLUTIONS: HomeSolution[] = [
         description:
             "Kết hợp kiểm soát ra vào, tuần tra kỹ thuật và hỗ trợ khách để duy trì môi trường làm việc an toàn, thân thiện.",
         benefits: ["Kiểm soát khách và nhà thầu", "Tuần tra kỹ thuật định kỳ", "Phối hợp ban quản lý tòa nhà"],
-        image: "/images/home-solutions/office-security.webp",
+        image: "/images/home-solutions/office-security-white-uniform.png",
         imageAlt: "Nhân viên bảo vệ kiểm tra khách tại sảnh tòa nhà văn phòng",
         href: "/bai-viet/giai-phap-an-ninh-toa-nha-van-phong",
     },
@@ -43,7 +43,7 @@ export const HOME_SOLUTIONS: HomeSolution[] = [
         description:
             "Đội ngũ triển khai theo sơ đồ sự kiện, chủ động phân luồng khách và phối hợp ban tổ chức trong mọi tình huống.",
         benefits: ["Kiểm soát vé và khu vực hạn chế", "Phân luồng, kiểm soát đám đông", "Phối hợp xử lý tình huống nhanh"],
-        image: "/images/home-solutions/event-security.webp",
+        image: "/images/home-solutions/event-security-white-uniform.png",
         imageAlt: "Nhân viên bảo vệ kiểm soát khách vào hội nghị doanh nghiệp",
         href: "/bai-viet/an-ninh-su-kien-quy-mo-lon",
     },
@@ -66,7 +66,7 @@ export const HOME_CASE_STUDY = {
     title: "Duy trì an ninh liên tục cho nhà máy hoạt động 24/7",
     description:
         "Mục tiêu có ba ca sản xuất, lưu lượng nhân sự và xe hàng thay đổi liên tục; yêu cầu kiểm soát chặt nhưng không làm gián đoạn vận hành.",
-    image: "/images/home-solutions/factory-security.webp",
+    image: "/images/home-solutions/factory-security-white-uniform.png",
     imageAlt: "Nhân viên bảo vệ thực hiện kiểm soát xe hàng tại nhà máy hoạt động liên tục",
     highlights: [
         { value: "03", label: "ca vận hành" },

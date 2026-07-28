@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 
@@ -9,7 +10,8 @@ type Testimonial = {
     role: string;
     rating: number;
     content: string;
-    initials: string;
+    company: string;
+    companyLogo: string;
 };
 
 const testimonials: Testimonial[] = [
@@ -20,7 +22,8 @@ const testimonials: Testimonial[] = [
         rating: 5,
         content:
             "Đội ngũ làm việc chuyên nghiệp, phản ứng nhanh và phối hợp rất tốt với ban quản lý.",
-        initials: "MQ",
+        company: "Vinhomes",
+        companyLogo: "/images/logo_business/vinhome.png",
     },
     {
         id: 2,
@@ -29,7 +32,8 @@ const testimonials: Testimonial[] = [
         rating: 5,
         content:
             "Nhân sự có tác phong nghiêm túc, đúng giờ và xử lý tình huống rất chủ động.",
-        initials: "TH",
+        company: "Samsung",
+        companyLogo: "/images/logo_business/samsung.png",
     },
     {
         id: 3,
@@ -38,7 +42,8 @@ const testimonials: Testimonial[] = [
         rating: 5,
         content:
             "Quy trình triển khai rõ ràng, đội ngũ ổn định và hỗ trợ rất nhanh khi có yêu cầu.",
-        initials: "HN",
+        company: "Toyota",
+        companyLogo: "/images/logo_business/toyota.png",
     },
 ];
 
@@ -172,10 +177,15 @@ export default function TestimonialCarousel() {
                 }`}
             >
                 <div
-                    aria-hidden="true"
-                    className="flex h-[58px] w-[58px] items-center justify-center rounded-xl bg-[#E8EEF7] text-sm font-bold text-[#2759A7] sm:h-[68px] sm:w-[68px]"
+                    className="relative flex h-[58px] w-[58px] items-center justify-center overflow-hidden rounded-xl border border-slate-100 bg-white p-1.5 sm:h-[68px] sm:w-[68px] sm:p-2"
                 >
-                    {testimonial.initials}
+                    <Image
+                        src={testimonial.companyLogo}
+                        alt={`Logo ${testimonial.company}`}
+                        fill
+                        sizes="68px"
+                        className="object-contain p-1.5 sm:p-2"
+                    />
                 </div>
 
                 <div className="min-w-0">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
     ArrowUpRight,
@@ -15,11 +16,18 @@ import {
 import { SERVICE_DETAILS } from "@/lib/service-data";
 
 const ICONS = [Building2, Factory, Warehouse, HardHat, CalendarCheck, ShoppingBag];
+const SERVICE_IMAGES = [
+    "/images/anh_nhan_vien/1784735915183_1512254896023574579_413629033841281138_282f410cfec55c3f3d9d27940f880c7a.jpg",
+    "/images/anh_nhan_vien/1784738532973_1512254896023574579_413629033841281138_a04b6f33b35679568f5a5f8c49eb2b3a.jpg",
+    "/images/anh_nhan_vien/1784737520772_1512254896023574579_413629033841281138_31b535d4193c6820cb174cd61ce63332.jpg",
+    "/images/anh_nhan_vien/1784736767820_1512254896023574579_413629033841281138_043b1f2d9ed77e4fb74f4a2bd275440c.jpg",
+    "/images/anh_nhan_vien/1784734717643_1512254896023574579_413629033841281138_47cfea147014387ad152d61510e2782d.jpg",
+    "/images/anh_nhan_vien/1784737057238_1512254896023574579_413629033841281138_2ba72e6e240361059d8b0968e57b836e.jpg",
+];
 
 export default function ServiceExplorer() {
     const [activeIndex, setActiveIndex] = useState(0);
     const active = SERVICE_DETAILS[activeIndex];
-    const ActiveIcon = ICONS[activeIndex] ?? ShieldCheck;
 
     return (
         <div className="overflow-hidden rounded-[28px] border border-line bg-white shadow-[0_20px_60px_rgba(7,23,46,.07)]">
@@ -46,7 +54,9 @@ export default function ServiceExplorer() {
                             }`}
                         >
                             <Icon size={18} className={selected ? "text-gold-soft" : "text-gold-deep"} aria-hidden="true" />
-                            {service.name.replace("Bảo vệ ", "")}
+                            <span className="uppercase">
+                                {service.name.replace("Bảo vệ ", "")}
+                            </span>
                         </button>
                     );
                 })}
@@ -54,14 +64,17 @@ export default function ServiceExplorer() {
 
             <div id="service-detail" role="tabpanel" className="grid lg:grid-cols-[.82fr_1.18fr]">
                 <div className="relative flex min-h-[310px] flex-col justify-between overflow-hidden bg-navy-900 p-7 text-white md:p-10">
-                    <div
-                        className="absolute -right-24 -top-24 h-72 w-72 rounded-full border-[42px] border-white/[.035]"
-                        aria-hidden="true"
+                    <Image
+                        key={SERVICE_IMAGES[activeIndex]}
+                        src={SERVICE_IMAGES[activeIndex]}
+                        alt={`Đội ngũ Bảo vệ Thế An — ${active.name}`}
+                        fill
+                        sizes="(max-width: 1023px) 100vw, 42vw"
+                        className="object-cover"
                     />
-                    <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 text-gold-soft">
-                        <ActiveIcon size={27} strokeWidth={1.5} aria-hidden="true" />
-                    </div>
-                    <div className="relative mt-16">
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/60 to-navy-950/5" />
+                    <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-black/45 to-transparent" />
+                    <div className="relative mt-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                         <p className="text-xs font-semibold uppercase tracking-[.16em] text-gold-soft">{active.code}</p>
                         <h3 className="mt-3 font-serif text-3xl leading-tight md:text-4xl">{active.name}</h3>
                         <p className="mt-4 max-w-md text-sm leading-7 text-white/65">{active.description}</p>

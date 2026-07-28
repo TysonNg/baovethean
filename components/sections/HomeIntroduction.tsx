@@ -10,6 +10,7 @@ import {
     Users,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
+import Image from "next/image";
 
 const COMPANY_FACTS = [
     { label: "Tên công ty", value: "CÔNG TY TNHH DỊCH VỤ BẢO VỆ THẾ AN", icon: Building2 },
@@ -45,39 +46,46 @@ export default function HomeIntroduction() {
                     <p className="mt-4 text-lg text-ink-3">Uy tín tạo thương hiệu – An toàn cho cộng đồng</p>
                 </div>
 
-                <div className="mt-12 grid gap-6 lg:grid-cols-2 lg:items-stretch">
-                    <div className="rounded-2xl bg-navy-900 p-6 text-white shadow-xl md:p-8">
-                        <div className="mb-7 flex items-center gap-3 border-b border-white/20 pb-5">
-                            <ShieldCheck className="text-gold" size={34} aria-hidden="true" />
-                            <h3 className="text-xl font-semibold md:text-2xl">Thông tin công ty</h3>
+                <article className="relative mt-12 overflow-hidden rounded-2xl border border-navy-900/10 bg-slate-50 shadow-xl md:grid md:grid-cols-[40%_60%]">
+                    <div className="relative flex min-h-72 flex-col items-center justify-center overflow-hidden bg-navy-900 p-7 text-white md:min-h-[430px] md:p-10 md:pr-14">
+                        <div className="relative max-w-sm place-items-center">
+                            <Image
+                                width={150}
+                                height={100}
+                                alt="logo-bao-ve-the-an"
+                                src={"/logo1.png"}
+                            />
+                            <p className="text-sm font-semibold uppercase text-center tracking-[0.2em] text-gold">Bảo vệ chuyên nghiệp</p>
+                            <p className="mt-3 text-xs text-center font-semibold leading-tight">An toàn cho doanh nghiệp của bạn</p>
                         </div>
-                        <dl className="space-y-5">
+                    </div>
+
+                    <div className="relative bg-gradient-to-br from-white via-blue-50/60 to-slate-100 p-7 md:p-10 md:pl-16">
+                        <div className="relative mb-7 border-b border-navy-900/10 pb-5">
+                            <h3 className="mt-2 text-xl font-semibold text-navy-900 md:text-2xl">Thông tin công ty</h3>
+                        </div>
+
+                        <dl className="relative space-y-5">
                             {COMPANY_FACTS.map(({ label, value, icon: Icon }) => (
                                 <div key={label} className="flex items-start gap-3">
-                                    <Icon className="mt-0.5 shrink-0 text-gold" size={19} aria-hidden="true" />
-                                    <div className="min-w-0 sm:flex sm:gap-3">
-                                        <dt className="shrink-0 text-sm text-white/65 sm:w-28">{label}</dt>
-                                        <dd className="mt-1 text-sm font-medium leading-relaxed text-white sm:mt-0">{value}</dd>
+                                    <Icon className="mt-0.5 shrink-0 text-gold-deep md:hidden" size={19} aria-hidden="true" />
+                                    <div className="min-w-0 sm:grid sm:grid-cols-[7rem_1fr] sm:gap-3">
+                                        <dt className="shrink-0 text-sm text-ink-3">{label}</dt>
+                                        <dd className="mt-1 text-sm font-semibold leading-relaxed text-navy-900 sm:mt-0">{value}</dd>
                                     </div>
                                 </div>
                             ))}
                         </dl>
                     </div>
 
-                    <div className="relative min-h-[360px] overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 p-8">
-                        <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full border-[24px] border-navy-900/10" aria-hidden="true" />
-                        <ShieldCheck className="absolute bottom-8 right-8 h-56 w-56 text-navy-900/10" strokeWidth={1} aria-hidden="true" />
-                        <div className="relative flex h-full flex-col justify-between">
-                            <span className="self-start rounded-full border border-navy-900/15 bg-white/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-navy-900">
-                                Thế An Security
+                    <div className="absolute left-[40%] top-1/2 hidden -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1 rounded-full border border-white/20 bg-navy-800 px-2 py-3 text-gold shadow-lg md:flex" aria-hidden="true">
+                        {COMPANY_FACTS.map(({ label, icon: Icon }) => (
+                            <span key={label} className="flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-white/10">
+                                <Icon size={18} />
                             </span>
-                            <div className="max-w-sm">
-                                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gold-deep">Bảo vệ chuyên nghiệp</p>
-                                <p className="mt-3 text-3xl font-semibold leading-tight text-navy-900 md:text-4xl">An tâm vận hành. Vững bước phát triển.</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
-                </div>
+                </article>
 
                 {/* <dl className="mt-6 grid grid-cols-2 overflow-hidden rounded-2xl border border-line bg-white shadow-sm lg:grid-cols-4">
                     {STATS.map(({ value, label, icon: Icon }, index) => (

@@ -38,6 +38,7 @@ const recordLastLogin: CollectionAfterLoginHook = async ({ req, user }) => {
         id: user.id,
         data: { lastLoginAt: new Date().toISOString() },
         overrideAccess: true,
+        req,
     });
 };
 

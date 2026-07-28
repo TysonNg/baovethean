@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Shield } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -51,6 +52,17 @@ export default function AboutStory() {
                     </div>
 
                     <figure className="relative aspect-[4/5] rounded overflow-hidden bg-navy-800">
+                        <Image
+                            src="/images/anh_nhan_vien/1784736767820_1512254896023574579_413629033841281138_043b1f2d9ed77e4fb74f4a2bd275440c.jpg"
+                            alt="Đội ngũ nhân viên bảo vệ Thế An tại khu căn hộ"
+                            fill
+                            sizes="(max-width: 1023px) 100vw, 50vw"
+                            className="object-cover"
+                        />
+                        <div
+                            className="absolute inset-0 bg-navy-950/20"
+                            aria-hidden="true"
+                        />
                         <span className="absolute top-4 right-4 text-xs font-mono text-white/50">
                             IMG · A01
                         </span>

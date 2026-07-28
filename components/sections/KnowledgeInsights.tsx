@@ -7,15 +7,15 @@ import type { BlogArticle } from "@/types";
 
 const FALLBACK_IMAGES = [
     {
-        src: "/images/home-solutions/factory-security.webp",
+        src: "/images/home-solutions/factory-security-white-uniform.png",
         alt: "Nhân viên bảo vệ kiểm soát an ninh tại nhà máy",
     },
     {
-        src: "/images/home-solutions/office-security.webp",
+        src: "/images/home-solutions/office-security-white-uniform.png",
         alt: "Nhân viên bảo vệ vận hành an ninh tại tòa nhà",
     },
     {
-        src: "/images/home-solutions/event-security.webp",
+        src: "/images/home-solutions/event-security-white-uniform.png",
         alt: "Nhân viên bảo vệ kiểm soát khách tại sự kiện doanh nghiệp",
     },
 ];

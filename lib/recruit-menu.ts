@@ -5,7 +5,6 @@ export interface RecruitMenuItem {
 
 export const RECRUIT_MENU_ITEMS: RecruitMenuItem[] = [
     { title: "Quyền lợi nhân viên", href: "/tuyen-dung/quyen-loi-nhan-vien" },
-    { title: "Khu vực cần tuyển", href: "/tuyen-dung/khu-vuc-can-tuyen" },
     { title: "Đào tạo", href: "/tuyen-dung/dao-tao" },
     { title: "Yêu cầu", href: "/tuyen-dung/yeu-cau" },
 ];

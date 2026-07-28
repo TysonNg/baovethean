@@ -44,6 +44,8 @@ export default function Standards() {
                     <div className="relative">
                         <Photo
                             label="IMG · 09"
+                            src="/images/anh_nhan_vien/1784737796968_1512254896023574579_413629033841281138_6adc5a430ca7ab207ab8c24a9405da81.jpg"
+                            alt="Nhân viên bảo vệ Thế An thực hành phòng cháy chữa cháy"
                             className="aspect-[4/5] w-full"
                         />
                         <div className="absolute top-6 right-6 bg-white/95 backdrop-blur p-5 rounded max-w-[200px]">

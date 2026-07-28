@@ -13,6 +13,8 @@ export default function About() {
                     <div className="relative">
                         <Photo
                             label="IMG · 02"
+                            src="/images/anh_nhan_vien/1784737057238_1512254896023574579_413629033841281138_2ba72e6e240361059d8b0968e57b836e.jpg"
+                            alt="Đội ngũ nhân viên bảo vệ Thế An tại khu dân cư"
                             className="aspect-[3/4] w-full"
                         />
                         <div className="absolute bottom-6 left-6 bg-navy-900 text-white px-5 py-4 rounded">

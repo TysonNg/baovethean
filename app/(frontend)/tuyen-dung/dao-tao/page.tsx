@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
     ArrowUpRight,
     Check,
     Flame,
     HeartPulse,
-    ImagePlus,
     PhoneCall,
     ShieldCheck,
     TriangleAlert,
@@ -199,10 +199,9 @@ export default function RecruitmentTrainingPage() {
                                 </h2>
                             </div>
                             <p className="max-w-2xl text-sm leading-7 text-white/65 lg:justify-self-end">
-                                Hình ảnh sẽ được cập nhật từ các khóa đào tạo
-                                của Bảo vệ Thế An. Các khung bên dưới đã được
-                                chuẩn bị để thay ảnh thật mà không làm thay đổi
-                                bố cục trang.
+                                Những khoảnh khắc thực tế trong hoạt động huấn
+                                luyện, diễn tập và rèn luyện tác phong của đội
+                                ngũ Bảo vệ Thế An.
                             </p>
                         </div>
 
@@ -210,29 +209,22 @@ export default function RecruitmentTrainingPage() {
                             {TRAINING_GALLERY_SLOTS.map((slot) => (
                                 <div
                                     key={slot.number}
-                                    className={`group relative flex items-center justify-center overflow-hidden rounded-2xl border border-dashed border-white/25 bg-white/[0.04] ${
+                                    className={`group relative overflow-hidden rounded-2xl bg-white/[0.04] ${
                                         slot.aspect === "landscape"
                                             ? "aspect-[4/3]"
                                             : "aspect-[3/4]"
                                     }`}
                                 >
-                                    <div
-                                        aria-hidden="true"
-                                        className="absolute inset-5 rounded-xl border border-white/[0.06]"
+                                    <Image
+                                        src={slot.image}
+                                        alt={slot.alt}
+                                        fill
+                                        sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                                     />
-                                    <div className="relative z-10 flex flex-col items-center px-5 text-center">
-                                        <span className="flex size-12 items-center justify-center rounded-full bg-white/10 text-gold-soft">
-                                            <ImagePlus
-                                                aria-hidden="true"
-                                                className="size-5"
-                                                strokeWidth={1.7}
-                                            />
-                                        </span>
-                                        <span className="mt-4 text-sm font-semibold text-white/80">
+                                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-950/90 to-transparent px-5 pt-16 pb-5">
+                                        <span className="text-sm font-semibold text-white">
                                             {slot.label}
-                                        </span>
-                                        <span className="mt-1 text-xs text-white/40">
-                                            Chờ ảnh thực tế
                                         </span>
                                     </div>
                                 </div>
