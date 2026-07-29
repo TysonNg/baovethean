@@ -29,7 +29,7 @@ export async function generateMetadata({
 
     const { isEnabled: isDraft } = await draftMode();
 
-    const url = `https://baovethean.vn/bai-viet/${article.slug}`;
+    const url = `https://baovethean.com/bai-viet/${article.slug}`;
 
     const ogImage = `/og/bai-viet/${article.slug}.jpg`;
 
@@ -113,8 +113,8 @@ function ArticleJsonLd({
     article: BlogArticle;
     related: BlogArticle[];
 }) {
-    const url = `https://baovethean.vn/bai-viet/${article.slug}`;
-    const imageUrl = `https://baovethean.vn/og/bai-viet/${article.slug}.jpg`;
+    const url = `https://baovethean.com/bai-viet/${article.slug}`;
+    const imageUrl = `https://baovethean.com/og/bai-viet/${article.slug}.jpg`;
 
     const articleBody = article.body.map((block) => block.text).join("\n\n");
     const wordCount = articleBody.split(/\s+/).filter(Boolean).length;
@@ -144,15 +144,15 @@ function ArticleJsonLd({
         author: {
             "@type": "Organization",
             name: article.author,
-            url: "https://baovethean.vn/gioi-thieu",
+            url: "https://baovethean.com/gioi-thieu",
         },
         publisher: {
             "@type": "Organization",
             name: COMPANY.fullName,
-            url: "https://baovethean.vn",
+            url: "https://baovethean.com",
             logo: {
                 "@type": "ImageObject",
-                url: "https://baovethean.vn/logo.png",
+                url: "https://baovethean.com/logo.png",
                 width: 512,
                 height: 512,
             },
@@ -160,7 +160,7 @@ function ArticleJsonLd({
         isPartOf: {
             "@type": "Blog",
             name: "Tin tức Bảo vệ Thế An",
-            url: "https://baovethean.vn/bai-viet",
+            url: "https://baovethean.com/bai-viet",
         },
         about: article.tags.map((tag) => ({
             "@type": "Thing",
@@ -176,19 +176,19 @@ function ArticleJsonLd({
                 "@type": "ListItem",
                 position: 1,
                 name: "Trang chủ",
-                item: "https://baovethean.vn",
+                item: "https://baovethean.com",
             },
             {
                 "@type": "ListItem",
                 position: 2,
                 name: "Tin tức",
-                item: "https://baovethean.vn/bai-viet",
+                item: "https://baovethean.com/bai-viet",
             },
             {
                 "@type": "ListItem",
                 position: 3,
                 name: article.category,
-                item: `https://baovethean.vn/bai-viet?category=${article.categorySlug}`,
+                item: `https://baovethean.com/bai-viet?category=${article.categorySlug}`,
             },
             {
                 "@type": "ListItem",
@@ -206,7 +206,7 @@ function ArticleJsonLd({
               itemListElement: related.map((item, i) => ({
                   "@type": "ListItem",
                   position: i + 1,
-                  url: `https://baovethean.vn/bai-viet/${item.slug}`,
+                  url: `https://baovethean.com/bai-viet/${item.slug}`,
                   name: item.title,
               })),
           }

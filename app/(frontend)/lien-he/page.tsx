@@ -5,7 +5,7 @@ import ContactMap from "@/components/sections/contact/ContactMap";
 import { COMPANY } from "@/lib/data";
 import { getPayloadClient } from "@/lib/payload/getPayload";
 
-const PAGE_URL = "https://baovethean.vn/lien-he";
+const PAGE_URL = "https://baovethean.com/lien-he";
 const PAGE_TITLE = "Liên hệ tư vấn — Bảo vệ Thế An";
 const PAGE_DESCRIPTION =
     "Liên hệ Bảo vệ Thế An để được tư vấn dịch vụ bảo vệ chuyên nghiệp. Hotline 24/7: 0903304003. Khảo sát miễn phí, báo giá trong 48 giờ. Văn phòng tại TP.HCM, Hà Nội, Đà Nẵng, Bình Dương.";
@@ -59,7 +59,7 @@ function ContactJsonLd() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Trang chủ",
-                item: "https://baovethean.vn",
+                item: "https://baovethean.com",
             },
             {
                 "@type": "ListItem",

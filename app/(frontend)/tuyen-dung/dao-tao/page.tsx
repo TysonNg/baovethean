@@ -22,7 +22,7 @@ import {
     type TrainingModule,
 } from "@/lib/recruit-training";
 
-const PAGE_URL = "https://baovethean.vn/tuyen-dung/dao-tao";
+const PAGE_URL = "https://baovethean.com/tuyen-dung/dao-tao";
 
 export const metadata: Metadata = {
     title: "Đào tạo nghiệp vụ — Bảo vệ Thế An",

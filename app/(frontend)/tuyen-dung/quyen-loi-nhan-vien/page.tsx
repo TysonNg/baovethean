@@ -11,7 +11,7 @@ import {
 import PageBanner from "@/components/layout/PageBanner";
 import Container from "@/components/ui/Container";
 
-const PAGE_URL = "https://baovethean.vn/tuyen-dung/quyen-loi-nhan-vien";
+const PAGE_URL = "https://baovethean.com/tuyen-dung/quyen-loi-nhan-vien";
 
 export const metadata: Metadata = {
     title: "Quyền lợi nhân viên — Bảo vệ Thế An",

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getPayloadClient } from "@/lib/payload/getPayload";
 
-const BASE = "https://baovethean.vn";
+const BASE = "https://baovethean.com";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const payload = await getPayloadClient();

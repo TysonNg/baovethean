@@ -7,7 +7,7 @@ import RecruitVoices from "@/components/sections/recruit/RecruitVoices";
 import CtaBand from "@/components/sections/CtaBand";
 import { COMPANY } from "@/lib/data";
 
-const PAGE_URL = "https://baovethean.vn/tuyen-dung";
+const PAGE_URL = "https://baovethean.com/tuyen-dung";
 const PAGE_TITLE = "Tuyển dụng nhân viên bảo vệ — Bảo vệ Thế An";
 const PAGE_DESCRIPTION =
     "Bảo vệ Thế An tuyển dụng nhân viên bảo vệ tại TP.HCM, Hà Nội, Bình Dương, Đà Nẵng. Lương 7,5 – 12 triệu, phụ cấp ca đêm 25 – 35%, BHXH/BHYT/BHTN, đào tạo 120 giờ trước nhận việc.";
@@ -56,7 +56,7 @@ function RecruitJsonLd() {
         hiringOrganization: {
             "@type": "Organization",
             name: COMPANY.fullName,
-            sameAs: "https://baovethean.vn",
+            sameAs: "https://baovethean.com",
         },
         jobLocation: [
             {
@@ -119,7 +119,7 @@ function RecruitJsonLd() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Trang chủ",
-                item: "https://baovethean.vn",
+                item: "https://baovethean.com",
             },
             {
                 "@type": "ListItem",

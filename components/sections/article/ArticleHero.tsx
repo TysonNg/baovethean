@@ -80,7 +80,7 @@ export default function ArticleHero({ article }: ArticleHeroProps) {
                     <div className="flex items-center gap-3">
                         <span className="eyebrow text-ink-3 mr-1">Chia sẻ</span>
                         <a
-                            href={`https://www.facebook.com/sharer/sharer.php?u=https://baovethean.vn/bai-viet/${article.slug}`}
+                            href={`https://www.facebook.com/sharer/sharer.php?u=https://baovethean.com/bai-viet/${article.slug}`}
                             aria-label="Chia sẻ qua Facebook"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -89,7 +89,7 @@ export default function ArticleHero({ article }: ArticleHeroProps) {
                             <FacebookIcon size={14} />
                         </a>
                         <a
-                            href={`https://www.linkedin.com/shareArticle?mini=true&url=https://baovethean.vn/bai-viet/${article.slug}`}
+                            href={`https://www.linkedin.com/shareArticle?mini=true&url=https://baovethean.com/bai-viet/${article.slug}`}
                             aria-label="Chia sẻ qua LinkedIn"
                             target="_blank"
                             rel="noopener noreferrer"
@@ -98,7 +98,7 @@ export default function ArticleHero({ article }: ArticleHeroProps) {
                             <LinkedinIcon size={14} />
                         </a>
                         <a
-                            href={`sms:?body=https://baovethean.vn/bai-viet/${article.slug}`}
+                            href={`sms:?body=https://baovethean.com/bai-viet/${article.slug}`}
                             aria-label="Chia sẻ qua tin nhắn"
                             className="w-9 h-9 border border-line rounded flex items-center justify-center text-ink-3 hover:border-gold hover:text-ink transition-colors"
                         >

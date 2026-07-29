@@ -3,7 +3,7 @@ import ProcessHero from "@/components/sections/process/ProcessHero";
 import ProcessStep from "@/components/sections/process/ProcessStep";
 import { PROCESS_STEPS } from "@/lib/process-data";
 
-const PAGE_URL = "https://baovethean.vn/quy-trinh";
+const PAGE_URL = "https://baovethean.com/quy-trinh";
 const PAGE_TITLE = "Quy trình hợp tác dịch vụ bảo vệ — 6 bước minh bạch";
 const PAGE_DESCRIPTION =
     "Quy trình hợp tác Bảo vệ Thế An gồm 6 bước minh bạch: tiếp nhận, khảo sát, đề xuất, ký hợp đồng, triển khai, giám sát. Khảo sát miễn phí, báo giá trong 48 giờ.";
@@ -66,7 +66,7 @@ function HowToJsonLd() {
                 "@type": "ListItem",
                 position: 1,
                 name: "Trang chủ",
-                item: "https://baovethean.vn",
+                item: "https://baovethean.com",
             },
             {
                 "@type": "ListItem",

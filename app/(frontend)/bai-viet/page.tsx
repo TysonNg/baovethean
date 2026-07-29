@@ -8,7 +8,7 @@ import { COMPANY } from "@/lib/data";
 
 export const revalidate = 60;
 
-const PAGE_URL = "https://baovethean.vn/bai-viet";
+const PAGE_URL = "https://baovethean.com/bai-viet";
 const PAGE_TITLE = "Bài viết";
 const PAGE_DESCRIPTION =
     "Cập nhật kiến thức, kinh nghiệm và giải pháp bảo vệ chuyên nghiệp cho doanh nghiệp. Hơn 12 bài viết chuyên sâu về quy trình, nhân sự, công nghệ và xu hướng an ninh từ đội ngũ Bảo vệ Thế An.";
@@ -55,7 +55,7 @@ function BlogListJsonLd({ articles }: { articles: BlogArticle[] }) {
         publisher: {
             "@type": "Organization",
             name: COMPANY.fullName,
-            url: "https://baovethean.vn",
+            url: "https://baovethean.com",
         },
         blogPost: articles.slice(0, 12).map((article) => ({
             "@type": "BlogPosting",
@@ -81,7 +81,7 @@ function BlogListJsonLd({ articles }: { articles: BlogArticle[] }) {
                 "@type": "ListItem",
                 position: 1,
                 name: "Trang chủ",
-                item: "https://baovethean.vn",
+                item: "https://baovethean.com",
             },
             {
                 "@type": "ListItem",

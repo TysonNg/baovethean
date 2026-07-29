@@ -20,7 +20,7 @@ const sourceSerif4 = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://baovethean.vn"),
+    metadataBase: new URL("https://baovethean.com"),
     title: {
         default: "Dịch vụ bảo vệ chuyên nghiệp | Bảo vệ Thế An",
         template: "%s | Bảo vệ Thế An",

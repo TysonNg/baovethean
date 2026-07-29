@@ -20,7 +20,7 @@ import {
     type RecruitRequirementIcon,
 } from "@/lib/recruit-requirements";
 
-const PAGE_URL = "https://baovethean.vn/tuyen-dung/yeu-cau";
+const PAGE_URL = "https://baovethean.com/tuyen-dung/yeu-cau";
 
 export const metadata: Metadata = {
     title: "Yêu cầu ứng viên — Bảo vệ Thế An",

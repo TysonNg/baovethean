@@ -13,7 +13,7 @@ import {
 
 export const revalidate = 60;
 
-const BASE = "https://baovethean.vn";
+const BASE = "https://baovethean.com";
 
 interface PageParams {
     params: Promise<{ slug: string }>;

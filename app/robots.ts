@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: "https://baovethean.vn/sitemap.xml",
+        sitemap: "https://baovethean.com/sitemap.xml",
     };
 }

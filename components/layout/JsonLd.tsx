@@ -1,6 +1,6 @@
 import { COMPANY } from "@/lib/data";
 
-const SITE_URL = "https://baovethean.vn";
+const SITE_URL = "https://baovethean.com";
 
 export default function JsonLd() {
     const organization = {
