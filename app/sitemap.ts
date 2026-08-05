@@ -3,6 +3,9 @@ import { getPayloadClient } from "@/lib/payload/getPayload";
 
 const BASE = "https://baovethean.com";
 
+// Posts and categories come from Payload at request time, never during build.
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const now = new Date();
 
