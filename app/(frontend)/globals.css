@@ -123,45 +123,8 @@
         color: var(--gold-deep);
     }
 
-    .loading-shimmer {
-        position: relative;
-        overflow: hidden;
-    }
-
-    .loading-shimmer::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        transform: translateX(-100%);
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.64),
-            transparent
-        );
-        animation: loading-shimmer 1.6s ease-in-out infinite;
-    }
-
-    .loading-shimmer-dark::after {
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(224, 193, 129, 0.24),
-            transparent
-        );
-    }
-
-    .loading-progress {
-        background-size: 220% 100%;
-        animation: loading-progress 1.8s ease-in-out infinite;
-    }
-
     .loading-orbit {
         animation: loading-orbit 1.7s linear infinite;
-    }
-
-    .loading-pulse-ring {
-        animation: loading-pulse-ring 1.8s ease-out infinite;
     }
 }
 
@@ -179,37 +142,9 @@
     }
 }
 
-@keyframes loading-shimmer {
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-@keyframes loading-progress {
-    0% {
-        background-position: 100% 0;
-    }
-
-    100% {
-        background-position: -120% 0;
-    }
-}
-
 @keyframes loading-orbit {
     to {
         transform: rotate(360deg);
-    }
-}
-
-@keyframes loading-pulse-ring {
-    0% {
-        opacity: 0.72;
-        transform: scale(0.92);
-    }
-
-    100% {
-        opacity: 0;
-        transform: scale(1.18);
     }
 }
 
@@ -224,10 +159,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .loading-shimmer::after,
-    .loading-progress,
-    .loading-orbit,
-    .loading-pulse-ring {
+    .loading-orbit {
         animation: none;
     }
 }

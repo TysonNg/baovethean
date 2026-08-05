@@ -39,6 +39,8 @@ export default buildConfig({
         outputFile: path.resolve(dirname, "payload-types.ts"),
     },
     db: postgresAdapter({
+        // Production must fail loudly when its managed database is missing.
+        disableCreateDatabase: process.env.NODE_ENV === "production",
         pool: { connectionString: process.env.DATABASE_URI || "" },
     }),
     sharp,

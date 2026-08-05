@@ -54,8 +54,13 @@ npm ci
 npm run build
 ```
 
-Điền `DATABASE_URI`, `PAYLOAD_SECRET`, `PAYLOAD_PREVIEW_SECRET` và SMTP thật
-trong `.env`. Không commit `.env`.
+Điền `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`, `DATABASE_URI`,
+`PAYLOAD_SECRET`, `PAYLOAD_PREVIEW_SECRET` và SMTP thật trong `.env`. Dùng
+mật khẩu PostgreSQL ngẫu nhiên (ví dụ `openssl rand -hex 32`), không dùng
+thông tin mặc định và không commit `.env`.
+
+Khởi tạo hoặc restore database trước khi chạy ứng dụng. Production cố ý không
+tự tạo database trống khi biến `DATABASE_URI` bị sai hoặc database bị mất.
 
 Khởi động Next.js bằng PM2:
 

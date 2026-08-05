@@ -12,16 +12,18 @@ Payload được tích hợp trực tiếp vào app Next.js này (không tách r
 ```bash
 npm install
 cp .env.example .env
-# Mở .env, điền PAYLOAD_SECRET (vd: openssl rand -base64 32)
+# Mở .env, điền PAYLOAD_SECRET và POSTGRES_PASSWORD.
+# Mật khẩu DB nên tạo bằng: openssl rand -hex 32
 ```
 
 ## 3. Khởi động database
 
 ```bash
-docker compose up -d          # PostgreSQL tại localhost:5432, db "baovethean"
+docker compose up -d          # PostgreSQL tại 127.0.0.1:5432, db "baovethean"
 ```
 
-Nếu dùng PostgreSQL riêng, chỉ cần sửa `DATABASE_URI` trong `.env`.
+Nếu dùng PostgreSQL riêng, chỉ cần sửa `DATABASE_URI` trong `.env`. Không
+mở cổng PostgreSQL ra Internet và không dùng tài khoản/mật khẩu mặc định.
 
 ## 4. Sinh types & import map
 
