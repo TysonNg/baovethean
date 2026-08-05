@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import { CheckCircle2, LoaderCircle, Send } from "lucide-react";
+import { trackAnalyticsEvent } from "@/lib/analytics";
 
 const inputClass =
     "w-full rounded border border-line bg-[#f7f7f5] px-4 text-sm text-ink outline-none transition-colors placeholder:text-ink-3/55 focus:border-gold focus:ring-2 focus:ring-gold/15";
@@ -39,6 +40,7 @@ export default function ContactForm() {
 
             formRef.current?.reset();
             setStatus("success");
+            trackAnalyticsEvent("generate_lead", { form_name: "contact" });
         } catch (error) {
             setErrorMessage(
                 error instanceof Error

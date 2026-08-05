@@ -4,7 +4,9 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingContact from "@/components/layout/FloatingContact";
 import JsonLd from "@/components/layout/JsonLd";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import { COMPANY } from "@/lib/data";
+import { getPayloadClient } from "@/lib/payload/getPayload";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -19,7 +21,7 @@ const sourceSerif4 = Source_Serif_4({
     weight: ["400", "600"],
 });
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
     metadataBase: new URL("https://baovethean.com"),
     title: {
         default: "Dịch vụ bảo vệ chuyên nghiệp | Bảo vệ Thế An",
@@ -84,6 +86,33 @@ export const metadata: Metadata = {
     referrer: "origin-when-cross-origin",
 };
 
+async function getGoogleVerification() {
+    const environmentToken = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+    if (environmentToken) return environmentToken;
+
+    try {
+        const payload = await getPayloadClient();
+        const settings = await payload.findGlobal({
+            slug: "site-settings",
+        });
+        return settings.googleSearchConsoleVerification?.trim() || undefined;
+    } catch {
+        // SEO metadata must remain available when the CMS is temporarily unavailable.
+        return undefined;
+    }
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+    const googleVerification = await getGoogleVerification();
+
+    return {
+        ...baseMetadata,
+        verification: googleVerification
+            ? { google: googleVerification }
+            : undefined,
+    };
+}
+
 export const viewport: Viewport = {
     themeColor: "#07172E",
     colorScheme: "light",
@@ -110,6 +139,7 @@ export default function RootLayout({
                 <Footer />
                 <FloatingContact />
                 <JsonLd />
+                <GoogleAnalytics />
             </body>
         </html>
     );

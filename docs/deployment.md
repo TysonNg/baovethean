@@ -51,6 +51,7 @@ Ví dụ mã nguồn đặt tại `/var/www/baovethean`:
 cd /var/www/baovethean
 cp .env.example .env
 npm ci
+npm run migrate
 npm run build
 ```
 
@@ -140,6 +141,7 @@ hồi từ Next.js.
 cd /var/www/baovethean
 git pull --ff-only
 npm ci
+npm run migrate
 npm run build
 pm2 reload deploy/pm2/ecosystem.config.cjs --update-env
 pm2 save

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowUp, MessageCircle, PhoneCall } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { COMPANY } from "@/lib/data";
+import TrackedPhoneLink from "@/components/analytics/TrackedPhoneLink";
 
 const phoneHref = `tel:${COMPANY.hotline.replaceAll(" ", "")}`;
 
@@ -73,8 +74,9 @@ export default function FloatingContact() {
                 <ArrowUp aria-hidden="true" size={25} strokeWidth={1.8} />
             </button>
 
-            <a
+            <TrackedPhoneLink
                 href={phoneHref}
+                placement="floating_contact"
                 aria-label="Gọi kinh doanh"
                 className="group flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-gold"
             >
@@ -82,7 +84,7 @@ export default function FloatingContact() {
                 <FloatingCircle>
                     <PhoneCall aria-hidden="true" size={21} />
                 </FloatingCircle>
-            </a>
+            </TrackedPhoneLink>
 
             <a
                 href={`https://zalo.me/${COMPANY.hotline.replaceAll(" ", "")}`}

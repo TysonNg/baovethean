@@ -66,6 +66,13 @@ export default function DichVuPage() {
                             </span>
                         ))}
                     </div>
+                    <Link
+                        href="/dich-vu/bao-ve-tphcm"
+                        className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-soft transition hover:text-white"
+                    >
+                        Xem dịch vụ bảo vệ tại TP.HCM
+                        <ArrowUpRight size={17} aria-hidden="true" />
+                    </Link>
                 </Container>
             </section>
 
